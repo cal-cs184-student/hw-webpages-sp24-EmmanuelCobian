@@ -65,6 +65,58 @@
 	<section id="task2">
 		<div class="container my-4">
 			<h1>Task 2: Antialiasing by Supersampling</h1>
+			<div class="row mt-4">
+				<div class="col-md-6 col-lg-4">
+					<h3>Why is supersamping useful?</h3>
+					<p>Supersampling is useful because it allows us to take multiple samples of a pixel and then average the color of those samples to get a more accurate color for the pixel. This is useful because it allows us to antialias the edges of the triangle and get a more accurate representation of the color of the triangle.</p>
+				</div>
+				<div class="col-md-6 col-lg-4">
+					<h3>What modifications were made to the rasterization pipeline?</h3>
+					<p>The modifications made to the rasterization pipeline were to loop through the grid of pixels and then loop through the grid of samples within each pixel. Then, I would check to see if the center of the sample was inside the triangle or not and then average the color of the samples to get the color of the pixel.</p>
+				</div>
+				<div class="col-md-12 col-lg-4">
+					<h3>How supersampling was used to antialias triangles</h3>
+					<p>Supersampling was used to antialias triangles by taking multiple samples of the pixels and then averaging the color of those samples to get a more accurate color for the pixel. In other words, the image was rasterized at a higher resolution and then downsampled to the output resolution of the framebuffer.</p>
+				</div>
+			</div>
+			<div class="row mt-4">
+				<div class="col-md-12 col-lg-4 mt-3">
+					<div class="card">
+						<img src="./test4_1_ss.png" class="card-img-top" alt="test4.svg with 1 pixel supersampling">
+						<div class="card-body">
+							<h5 class="card-title">1 Sample</h5>
+							<p class="card-text">I notice that the tip of this purple triangle isn't even connected. This could be a result of the triangle not falling in the center of the pixel that's sampled.</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-12 col-lg-4 mt-3">
+					<div class="card">
+						<img src="./test4_4_ss.png" class="card-img-top" alt="test4.svg with 1 pixel supersampling">
+						<div class="card-body">
+							<h5 class="card-title">4 Samples</h5>
+							<p class="card-text">Now the tip of the triangle connects. We get this result because each pixel is sampled more than once, allowing slimmer parts of the triangle to show up when before, they wouldn't because they didn't lie in the middle of the pixel.</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-12 col-lg-4 mt-3">
+					<div class="card">
+						<img src="./test4_16_ss.png" class="card-img-top" alt="test4.svg with 1 pixel supersampling">
+						<div class="card-body">
+							<h5 class="card-title">16 Samples</h5>
+							<p class="card-text">These results are just an improved version of 4 pixel supersampling because now we sample at an even higher resolution, meaning that more detail of the traingle is able to come through.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section id="task3">
+		<div class="container my-4">
+			<h1>Task 3: Transforms</h1>
+			<div class="row mt-4">
+				<div class="col"></div>
+			</div>
 		</div>
 	</section>
 
