@@ -46,14 +46,21 @@
 	</nav>
 
 	<section id="task1">
-		<div class="container my-4">
+		<div class="container my-5">
 			<h1>Task 1: Drawing Single-Color Triangles</h1>
 			<div class="row mt-4">
 				<div class="col-md-12 col-lg-6">
 					<h3>How to rasterize triangles</h3>
-					<p>The way I go about rasterizing triangles is by looping through the grid of pixels around the triangle I wish to draw and then checking to see if the center of a pixel is inside the triangle or not. The way to check if the center of a pixel is inside the triangle or not is by using the formula from lecture and performing the 3 line test for overlapping planes. If the point passes this test, then I fill the pixel in with a specified color.</p>
+					<p>The way I go about rasterizing triangles is by looping through the grid of pixels around the
+						triangle I wish to draw and then checking to see if the center of a pixel is inside the triangle
+						or not. The way to check if the center of a pixel is inside the triangle or not is by using the
+						formula from lecture and performing the 3 line test for overlapping planes. If the point passes
+						this test, then I fill the pixel in with a specified color.</p>
 					<h3>Algorithm Efficiency</h3>
-					<p>This algorithm to rasterize triangles is no worse than than one that checks each sample within the bounding box of the triangle because when looping through the grid, we take into account the min and max values (x, y) can take and only loop through those. In other words, I only look at the pixels that surround the triangle, not the entire grid.</p>
+					<p>This algorithm to rasterize triangles is no worse than than one that checks each sample within
+						the bounding box of the triangle because when looping through the grid, we take into account the
+						min and max values (x, y) can take and only loop through those. In other words, I only look at
+						the pixels that surround the triangle, not the entire grid.</p>
 				</div>
 				<div class="col-md-12 col-lg-6">
 					<img src="./test4.png" class="img-fluid">
@@ -63,20 +70,26 @@
 	</section>
 
 	<section id="task2">
-		<div class="container my-4">
+		<div class="container my-5">
 			<h1>Task 2: Antialiasing by Supersampling</h1>
 			<div class="row mt-4">
 				<div class="col-md-6 col-lg-4">
-					<h3>Why is supersamping useful?</h3>
-					<p>Supersampling is useful because it allows us to take multiple samples of a pixel and then average the color of those samples to get a more accurate color for the pixel. This is useful because it allows us to antialias the edges of the triangle and get a more accurate representation of the color of the triangle.</p>
+					<h3>Why is supersampling useful?</h3>
+					<p>Supersampling is useful because it allows us to take multiple samples of a pixel and then average
+						the color of those samples to get a more accurate color for the pixel. This is useful because it
+						allows us to antialias the edges of the triangle and get a more accurate representation of the
+						color of the triangle.</p>
 				</div>
 				<div class="col-md-6 col-lg-4">
 					<h3>What modifications were made to the rasterization pipeline?</h3>
-					<p>The modifications made to the rasterization pipeline were to loop through the grid of pixels and then loop through the grid of samples within each pixel. Then, I would check to see if the center of the sample was inside the triangle or not and then average the color of the samples to get the color of the pixel.</p>
+					<p>The modifications made to the rasterization pipeline were to add more loops that iterate through the grid of samples within a singular pixel. Then performing a line test for each of these samples. Then when it was time to resolve the sample buffer to the frame buffer, I take the average color value of each pixel and output that as the final color.</p>
 				</div>
 				<div class="col-md-12 col-lg-4">
 					<h3>How supersampling was used to antialias triangles</h3>
-					<p>Supersampling was used to antialias triangles by taking multiple samples of the pixels and then averaging the color of those samples to get a more accurate color for the pixel. In other words, the image was rasterized at a higher resolution and then downsampled to the output resolution of the framebuffer.</p>
+					<p>Supersampling was used to antialias triangles by taking multiple samples of the pixels and then
+						averaging the color of those samples to get a more accurate color for the pixel. In other words,
+						the image was rasterized at a higher resolution and then downsampled to the output resolution of
+						the framebuffer.</p>
 				</div>
 			</div>
 			<div class="row mt-4">
@@ -85,7 +98,9 @@
 						<img src="./test4_1_ss.png" class="card-img-top" alt="test4.svg with 1 pixel supersampling">
 						<div class="card-body">
 							<h5 class="card-title">1 Sample</h5>
-							<p class="card-text">I notice that the tip of this purple triangle isn't even connected. This could be a result of the triangle not falling in the center of the pixel that's sampled.</p>
+							<p class="card-text">I notice that the tip of this purple triangle isn't even connected.
+								This could be a result of the triangle not falling in the center of the pixel that's
+								sampled.</p>
 						</div>
 					</div>
 				</div>
@@ -94,7 +109,9 @@
 						<img src="./test4_4_ss.png" class="card-img-top" alt="test4.svg with 1 pixel supersampling">
 						<div class="card-body">
 							<h5 class="card-title">4 Samples</h5>
-							<p class="card-text">Now the tip of the triangle connects. We get this result because each pixel is sampled more than once, allowing slimmer parts of the triangle to show up when before, they wouldn't because they didn't lie in the middle of the pixel.</p>
+							<p class="card-text">Now the tip of the triangle connects. We get this result because each
+								pixel is sampled more than once, allowing slimmer parts of the triangle to show up when
+								before, they wouldn't because they didn't lie in the middle of the pixel.</p>
 						</div>
 					</div>
 				</div>
@@ -103,7 +120,9 @@
 						<img src="./test4_16_ss.png" class="card-img-top" alt="test4.svg with 1 pixel supersampling">
 						<div class="card-body">
 							<h5 class="card-title">16 Samples</h5>
-							<p class="card-text">These results are just an improved version of 4 pixel supersampling because now we sample at an even higher resolution, meaning that more detail of the traingle is able to come through.</p>
+							<p class="card-text">These results are just an improved version of 4 pixel supersampling
+								because now we sample at an even higher resolution, meaning that more detail of the
+								traingle is able to come through.</p>
 						</div>
 					</div>
 				</div>
@@ -112,12 +131,14 @@
 	</section>
 
 	<section id="task3">
-		<div class="container my-4">
+		<div class="container my-5">
 			<h1>Task 3: Transforms</h1>
 			<div class="row mt-4">
 				<div class="col-md-12 col-lg-6">
 					<h3>Custom Robot</h3>
-					<p>I was aiming at giving cubeman a human skin tone like color. I also made some transforms to their arms to make it look like cubeman is saluting. As to what or who they're saluting to, that's unclear.</p>
+					<p>I was aiming at giving cubeman a human skin tone like color. I also made some transforms to their
+						arms to make it look like cubeman is saluting. As to what or who they're saluting to, that's
+						unclear.</p>
 				</div>
 				<div class="col-md-12 col-lg-6">
 					<img src="./my_robot.png" alt="my custom robot" class="img-fluid">
@@ -127,27 +148,173 @@
 	</section>
 
 	<section id="task4">
-		<div class="container my-4">
+		<div class="container my-5">
 			<h1>Task 4: Barycentric Coordinates</h1>
 			<div class="row mt-4">
-				<div class="col-md-12 col-lg-6">
+				<div class="col">
 					<h3>What are Barycentric Coordinates?</h3>
-					<p>Barycentric coordinates are a set of three numbers that describe the position of a point with respect to a triangle. The constants (α, β, γ) can then be used to interpolate colors, textures, and geometry of any shape.</p>
+					<p>Barycentric coordinates are a set of three numbers that describe the position of a point with
+						respect to a triangle. The constants (α, β, γ) can then be used to interpolate colors, textures,
+						and geometry of any shape. These coordinates can then also be used to check whether a point (x, y) lies inside a triangle or not. For example, if any of α, β, γ aren't in the range [0, 1], then we know that point isn't inside the triangle.</p>
 				</div>
+			</div>
+			<div class="row mt-4 row-gap-4">
 				<div class="col-md-12 col-lg-6">
 					<img src="./barycentric.png" alt="barycentric coordinates" class="img-fluid">
 				</div>
-				<div class="col-6">
+				<div class="col-md-12 col-lg-6">
 					<img src="./task4.png" alt="rainbow circle" class="img-fluid">
 				</div>
 			</div>
 		</div>
 	</section>
 
+	<section id="task5">
+		<div class="container my-5">
+			<h1>Task 5: "Pixel Sampling" For Texture Mapping</h1>
+			<div class="row mt-4">
+				<div class="col-md-12 col-lg-6">
+					<h3>What is Pixel Sampling?</h3>
+					<p>Pixel sampling is the process of taking a sample of a pixel, translating that pixel position to a texture position, and then sampling that texture image to get the color of the pixel. This is useful because it gives us a standard way of mapping texture coordinates with pixel coordinates. Additionally, different modes of pixel sampling helps reduce aliasing by averaging neighboring texture color positions.</p>
+				</div>
+				<div class="col-md-12 col-lg-6">
+					<h3>Nearest vs. Bilinear Sampling</h3>
+					<p>Nearest sampling is the process of taking the color of the nearest texture color to the sample point. On the other hand,
+						bilinear sampling is the process of taking the average of the colors of the 4 nearest texture positions to
+						the sample point. Bilinear sampling is better than nearest sampling because it gives a more
+						accurate color for the pixel.</p>
+				</div>
+			</div>
+			<div class="row mt-4">
+				<div class="col-sm-12 col-md-6 mt-3">
+					<div class="card">
+						<img src="./linear_1.png" class="card-img-top"
+							alt="nearest neighbor with 1 pixel supersampling">
+						<div class="card-body">
+							<h5 class="card-title">Nearest Neighbor / 1 Pixel Supersampling</h5>
+							<p class="card-text">The lettering here looks ok, but clearly shows a lot of aliasing.
+								Especially around edges of the letter O, it's borders aren't all that clear. I notice a
+								lot of blue bleeding into where white pixels should be.</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-12 col-md-6 mt-4">
+					<div class="card">
+						<img src="./linear_16.png" class="card-img-top"
+							alt="nearest neighbor with 16 pixel supersampling">
+						<div class="card-body">
+							<h5 class="card-title">Nearest Neighbor / 16 Pixel Supersampling</h5>
+							<p class="card-text">Because of supersampling, we get better results here. The lettering has
+								more definition and the border between the blue and gold planes has less jaggies.
+								Nevertheless, the lettering still doesn't have clear boundaries.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row mt-4">
+				<div class="col-sm-12 col-md-6 mt-4">
+					<div class="card">
+						<img src="./bilinear_1.png" class="card-img-top" alt="bilinear 1 pixel supersampling">
+						<div class="card-body">
+							<h5 class="card-title">Bilinear / 1 Pixel SuperSampling</h5>
+							<p class="card-text">Even though this samples once per pixel, this already looks magnitudes
+								better than nearest pixel sampling. Elements in the image are well defined with minimal
+								color bleeding.</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-12 col-md-6 mt-4">
+					<div class="card">
+						<img src="./bilinear_16.png" class="card-img-top" alt="bilinear 16 pixel supersampling">
+						<div class="card-body">
+							<h5 class="card-title">Bilinear / 16 Pixel Supersampling</h5>
+							<p class="card-text">This result looks very similar to the same interpolation sampling but
+								fewer pixels for supersampling. I think this is expected because supersampling averages
+								the interpolated averages that were already calculated when doing bilinear
+								interpolation, so the colors aren't going to be all that different.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section id="task6">
+		<div class="container my-5">
+			<h1>Task 6: "Level Sampling" With Mipmaps For Texture Mapping</h1>
+			<div class="row mt-4">
+				<div class="col-sm-12 col-md-6">
+					<h3>What is level sampling?</h3>
+					<p>Level sampling is the process of taking 1 or more samples of a texture color from a mipmap and then averaging the color(s)
+						of those sample(s) to get a more accurate color for the pixel. Level sampling is useful because it helps create a smooth transition between textures depending on their relative distance to the viewer. It's also good for optimization because mipmaps are precomputed ahead of time and stored in memory.</p>
+				</div>
+				<div class="col-sm-12 col-md-6">
+					<h3>How was level sampling used?</h3>
+					<p>I used level sampling to implement both nearest and bilinear mipmap levels. With nearest, I just take the mipmap level that's closest to the sample given the process of calculating L, from lecture. On the other hand, bilinear mipmap levels interpolate between the two nearest levels with L as the weight dictating how much to take from each color. </p>
+				</div>
+			</div>
+			<div class="row mt-4">
+				<div class="col-sm-12 col-md-6 mt-3">
+					<div class="card">
+						<img src="./l_zero_p_near.png" class="card-img-top"
+							alt="L_ZERO / P_NEAREST">
+						<div class="card-body">
+							<h5 class="card-title">L_ZERO / P_NEAREST</h5>
+							<p class="card-text">
+								With the default values, the image looks pixelated and there's a lot of the moire effect.
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-12 col-md-6 mt-4">
+					<div class="card">
+						<img src="./l_zero_p_linear.png" class="card-img-top"
+							alt="L_ZERO / P_LINEAR">
+						<div class="card-body">
+							<h5 class="card-title">L_ZERO / P_LINEAR</h5>
+							<p class="card-text">
+								With Bilinear interpolation, the image looks a lot better. There's still some of the moire effect, but lines in the distance look slightly better.
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row mt-4">
+				<div class="col-sm-12 col-md-6 mt-4">
+					<div class="card">
+						<img src="./l_near_p_near.png" class="card-img-top" alt="L_NEAREST / P_NEAREST">
+						<div class="card-body">
+							<h5 class="card-title">L_NEAREST / P_NEAREST</h5>
+							<p class="card-text">
+								When taking the nearest mipmap level and the nearest pixel, the image looks even better than previous configurations. Lines in the distnace don't have the moire effect anymore. However, the image looks a bit off in certain areas still.
+							</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-12 col-md-6 mt-4">
+					<div class="card">
+						<img src="./l_near_p_linear.png" class="card-img-top" alt="L_NEAREST / P_LINEAR">
+						<div class="card-body">
+							<h5 class="card-title">L_NEAREST / P_LINEAR</h5>
+							<p class="card-text">
+								With the nearest mipmap level and bilinear interpolation, I believe the image looks the best. Lines both in the distance and up close straighten out and waves in the forefront look more well defined.
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<footer>
+		<div class="container my-5">
+			<p class="text-center">Emmanuel Cobian Duarte - CS 184 - Spring 2024</p>
+		</div>
+	</footer>
+
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-		integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-		crossorigin="anonymous">
-	</script>
+		integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+		</script>
 </body>
 
 </html>
