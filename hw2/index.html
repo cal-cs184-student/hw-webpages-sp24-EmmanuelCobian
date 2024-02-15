@@ -58,7 +58,66 @@
 		<div class="container">
 			<h1>Section 1: Bezier Curves and Surfaces</h1>
 			<h2>Part 1: Bezier Curves with 1D de Casteljau Subdivision</h2>
-			
+			<div class="row mt-4">
+				<div class="col-md-12 col-lg-6">
+					<h3>What is de Casteljau's algorithm?</h3>
+					<p>De Casteljau's algorithm is a way to evaluate Bézier curves and surfaces.</p>
+				</div>
+				<div class="col-md-12 col-lg-6">
+					<h3>How was the de Casteljau algorithm used?</h3>
+					<p>By interpolating between adjacent control points, we recursively divide the curve into smaller parts until we're left with a single point. This point represents a single point on the curve.</p>
+				</div>
+			</div>
+			<div class="row mt-4">
+				<div class="col-sm-12 col-md-6">
+					<figure class="figure">
+						<img src="./original_pts.png" class="img-fluid">
+						<figcaption class="figure-caption text-center">Original Points</figcaption>
+					</figure>
+				</div>
+				<div class="col-sm-12 col-md-6">
+					<figure class="figure">
+						<img src="./step1.png" class="img-fluid">
+						<figcaption class="figure-caption text-center">Step 1</figcaption>
+					</figure>
+				</div>
+			</div>
+			<div class="row mt-4">
+				<div class="col-sm-12 col-md-6">
+					<figure class="figure">
+						<img src="./step2.png" class="img-fluid">
+						<figcaption class="figure-caption text-center">Step 2</figcaption>
+					</figure>
+				</div>
+				<div class="col-sm-12 col-md-6">
+					<figure class="figure">
+						<img src="./step3.png" class="img-fluid">
+						<figcaption class="figure-caption text-center">Step 3</figcaption>
+					</figure>
+				</div>
+			</div>
+			<div class="row mt-4">
+				<div class="col-sm-12 col-md-6">
+					<figure class="figure">
+						<img src="./step4.png" class="img-fluid">
+						<figcaption class="figure-caption text-center">Step 4</figcaption>
+					</figure>
+				</div>
+				<div class="col-sm-12 col-md-6">
+					<figure class="figure">
+						<img src="./step5.png" class="img-fluid">
+						<figcaption class="figure-caption text-center">Step 5</figcaption>
+					</figure>
+				</div>
+			</div>
+			<div class="row justify-content-center mt-4">
+				<div class="col-sm-12 col-md-6">
+					<figure class="figure">
+						<img src="./alt_anchor.png" class="img-fluid">
+						<figcaption class="figure-caption text-center">Different Anchors and t-value</figcaption>
+					</figure>
+				</div>
+			</div>
 		</div>
 	</section>
 
