@@ -45,7 +45,7 @@
 		</div>
 	</nav>
 
-	<section id="overview"> 
+	<section id="overview">
 		<div class="container my-5">
 			<h1>Homework 2 - Mesh Edit</h1>
 			<!-- give a high level overview of what you did in this hw
@@ -54,7 +54,7 @@
 		</div>
 	</section>
 
-	<section id="task1" class="bg-body-secondary py-5">
+	<section id="part1" class="bg-body-secondary py-5">
 		<div class="container">
 			<h1>Section 1: Bezier Curves and Surfaces</h1>
 			<h2>Part 1: Bezier Curves with 1D de Casteljau Subdivision</h2>
@@ -65,7 +65,9 @@
 				</div>
 				<div class="col-md-12 col-lg-6">
 					<h3>How was the de Casteljau algorithm used?</h3>
-					<p>By interpolating between adjacent control points, we recursively divide the curve into smaller parts until we're left with a single point. This point represents a single point on the curve.</p>
+					<p>By interpolating between adjacent control points, we recursively divide the curve into smaller
+						parts until we're left with a single point. This point represents a single point on the curve.
+					</p>
 				</div>
 			</div>
 			<div class="row mt-4">
@@ -118,6 +120,32 @@
 					</figure>
 				</div>
 			</div>
+
+		</div>
+	</section>
+
+	<section id="part2" class="py-5">
+		<div class="container">
+			<h2>Part 2: Bezir Surfaces with Separable 1D de Casteljau</h2>
+			<div class="row mt-4">
+				<div class="col-md-12 col-lg-6">
+					<h3>How does de Casteljau algorithm extend to Bezier surfaces?</h3>
+					<p>De Casteljau's algorithm can be extended to Bezier surfaces by applying the same recursive
+						subdivision to first the rows of the surface and then taking each of those evaluated points and creating another point from those.</p>
+					<h3>How was this extension implemented to evaluate Bezier surfaces?</h3>
+					<p>By expanding on the implementation for Bezier curves, I first implemented the logic for evaluating one step of the algorithm, then implementing the logic to get the point in one dimension. These abstractions help make the next part easier by just evaluating the 1-D point for u first, then running the result of that again, but now for the t value.</p>
+				</div>
+				<div class="col-md-12 col-lg-6">
+					<img src="./teapot_part3.png" class="img-fluid">
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section id="part3" class="bg-body-secondary py-5">
+		<div class="container">
+			<h1>Section 2: Triangle Meshes and Half-Edge Data Structure</h1>
+			<h2>Part 3: Area-Weighted Vertex Normals</h2>
 		</div>
 	</section>
 
@@ -128,9 +156,8 @@
 	</footer>
 
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-		integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-		crossorigin="anonymous">
-	</script>
+		integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+		</script>
 </body>
 
 </html>
