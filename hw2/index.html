@@ -146,6 +146,27 @@
 		<div class="container">
 			<h1>Section 2: Triangle Meshes and Half-Edge Data Structure</h1>
 			<h2>Part 3: Area-Weighted Vertex Normals</h2>
+			<div class="row mt-4">
+				<div class="col">
+					<h3>How were area-weighted vertex normals implemented?</h3>		
+					<p>By iterating through the adjacent faces of a vertex and taking their area, I accumulated these values and then took the .unit() of them to get the normalized version of the total area. When iterating through faces, I have a check for whether a face is a boundary because those shouldn't be taken into consideration for the shading.</p>
+				</div>
+			</div>
+			<div class="row mt-4">
+				<div class="col-md-12 col-lg-6">
+					<figure class="figure">
+						<img src="./no_vertex_normals.png" class="img-fluid">
+						<figcaption class="figure-caption text-center">Teapot shading without vertex normals</figcaption>
+					</figure>
+				</div>
+				<div class="col-md-12 col-lg-6">
+					<figure class="figure">
+						<img src="./vertex_normals.png" class="img-fluid">
+						<figcaption class="figure-caption text-center">Teapot shading with vertex normals</figcaption>
+					</figure>
+				</div>
+				</div>
+			</div>
 		</div>
 	</section>
 
