@@ -170,6 +170,36 @@
 		</div>
 	</section>
 
+	<section id="part4" class="py-5">
+		<div class="container">
+			<h2>Part 4: Edge Flip</h2>
+			<div class="row mt-4">
+				<div class="col-md-12 col-lg-6">
+					<h3>How was edge flip implemented?</h3>
+					<p>I first took inventory of all the components present in the pair of triangles (a, b, c) and (c, b, d). This includes, halfedges, faces, verticies, and edges. Afterwards, I just update all the pointers of these components according to how they change after the flip.</p>
+				</div>
+				<div class="col-md-12 col-lg-6">
+					<h3>Any interesting tricks for implementation/debugging?</h3>
+					<p>I found that using a piece of paper and drawing out the components of the two triangles (a,b, c) and (c, b, d) was really helpful in keeping track where everything was. After drawing out the before and after, all that was left was to read out the locations/positions of the new components.</p>
+				</div>
+			</div>
+			<div class="row mt-4">
+				<div class="col-md-12 col-lg-6">
+					<figure class="figure">
+						<img src="./before_flips.png" class="img-fluid">
+						<figcaption class="figure-caption text-center">Before Edge Flips</figcaption>
+					</figure>
+				</div>
+				<div class="col-md-12 col-lg-6">
+					<figure class="figure">
+						<img src="./after_flips.png" class="img-fluid">
+						<figcaption class="figure-caption text-center">After Edge Flips</figcaption>
+					</figure>
+				</div>
+			</div>
+		</div>
+	</section>
+
 	<footer>
 		<div class="container my-5">
 			<p class="text-center">Emmanuel Cobian Duarte - CS 184 - Spring 2024</p>
