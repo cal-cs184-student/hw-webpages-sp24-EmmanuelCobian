@@ -50,7 +50,13 @@
 			<h1>Homework 2 - Mesh Edit</h1>
 			<!-- give a high level overview of what you did in this hw
 				think about what you've build as a whole. Share your thoughts on what interesting things you're learned from completing the homework. -->
-			<p class="lead">Fill this in</p>
+			<p class="lead">In this homework assignment, I explored topics on geometric modeling like building Bézier
+				curves and surfaces using de Castelijau algorithm. I also learned to manipulate triangle meshes
+				represented by the half-edge data structure. These manipulations include: <code>flipEdge</code>,
+				<code>splitEdge</code>, and with the combination of these two elementary operations,
+				<code>upsample</code> via loop subdivision. In particular, I found this final task of implementing
+				<code>upsample</code> interesting because it was a nice way of building up from the basics up to
+				something much more complex and applicable.</p>
 		</div>
 	</section>
 
@@ -154,7 +160,7 @@
 				<div class="col">
 					<h3>How were area-weighted vertex normals implemented?</h3>
 					<p>By iterating through the adjacent faces of a vertex and taking their area, I accumulated these
-						values and then took the <code>.unit()</code> of them to get the normalized version of the total
+						values and then took the <code>unit()</code> of them to get the normalized version of the total
 						area. When iterating through faces, I have a check for whether a face is a boundary because
 						those shouldn't be taken into consideration for the shading.</p>
 				</div>
@@ -324,10 +330,12 @@
 				</div>
 			</div>
 			<div class="row mt-4">
-				<div class="col-md-12 col-lg-8">
+				<div class="col">
 					<h3>Perform several iterations of loop subdivision on the cube. Document how the cube becomes
 						asymmetrical after several iterations.</h3>
-					<p>fill dis in</p>
+					<p>By the screenshots below, I notice that the cube does in fact become asymmetrical after only two
+						iterations of the loop subdivision algorithm. When increased by two more iterations. this effect
+						only becomes more apparent.</p>
 				</div>
 				<div class="row mt-4">
 					<figure class="figure col-md-12 col-lg-4">
@@ -347,11 +355,16 @@
 					</figure>
 				</div>
 				<div class="row mt-4">
-					<div class="col-md-12 col-lg-8">
+					<div class="col">
 						<h3>Can you pre-process the cube with edge flips and splits so that the cube subdivides
 							symmetrically? Document these effects and explain why they occur. Also explain how your
 							pre-processing helps alleviate the effects.</h3>
-						<p>fill dis in</p>
+						<p>By splitting the edges in an order such that distances between verticies become more equal, I
+							was able to make it so that the cube subdivides more equally. In the screenshots below, I
+							notice how much more symmetrical the cube is after just two iterations when compared to the
+							case with no pre-processing. Intuitively, I believe this happens because by subdividing the
+							cube into smaller, equal, parts before performing loop-subdivision, we dictate more of the
+							resulting shape we desire after the algorithm finishes.</p>
 					</div>
 				</div>
 				<div class="row mt-4">
