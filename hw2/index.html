@@ -131,9 +131,13 @@
 				<div class="col-md-12 col-lg-6">
 					<h3>How does de Casteljau algorithm extend to Bezier surfaces?</h3>
 					<p>De Casteljau's algorithm can be extended to Bezier surfaces by applying the same recursive
-						subdivision to first the rows of the surface and then taking each of those evaluated points and creating another point from those.</p>
+						subdivision to first the rows of the surface and then taking each of those evaluated points and
+						creating another point from those.</p>
 					<h3>How was this extension implemented to evaluate Bezier surfaces?</h3>
-					<p>By expanding on the implementation for Bezier curves, I first implemented the logic for evaluating one step of the algorithm, then implementing the logic to get the point in one dimension. These abstractions help make the next part easier by just evaluating the 1-D point for u first, then running the result of that again, but now for the t value.</p>
+					<p>By expanding on the implementation for Bezier curves, I first implemented the logic for
+						evaluating one step of the algorithm, then implementing the logic to get the point in one
+						dimension. These abstractions help make the next part easier by just evaluating the 1-D point
+						for u first, then running the result of that again, but now for the t value.</p>
 				</div>
 				<div class="col-md-12 col-lg-6">
 					<img src="./teapot_part3.png" class="img-fluid">
@@ -148,15 +152,19 @@
 			<h2>Part 3: Area-Weighted Vertex Normals</h2>
 			<div class="row mt-4">
 				<div class="col">
-					<h3>How were area-weighted vertex normals implemented?</h3>		
-					<p>By iterating through the adjacent faces of a vertex and taking their area, I accumulated these values and then took the .unit() of them to get the normalized version of the total area. When iterating through faces, I have a check for whether a face is a boundary because those shouldn't be taken into consideration for the shading.</p>
+					<h3>How were area-weighted vertex normals implemented?</h3>
+					<p>By iterating through the adjacent faces of a vertex and taking their area, I accumulated these
+						values and then took the <code>.unit()</code> of them to get the normalized version of the total
+						area. When iterating through faces, I have a check for whether a face is a boundary because
+						those shouldn't be taken into consideration for the shading.</p>
 				</div>
 			</div>
 			<div class="row mt-4">
 				<div class="col-md-12 col-lg-6">
 					<figure class="figure">
 						<img src="./no_vertex_normals.png" class="img-fluid">
-						<figcaption class="figure-caption text-center">Teapot shading without vertex normals</figcaption>
+						<figcaption class="figure-caption text-center">Teapot shading without vertex normals
+						</figcaption>
 					</figure>
 				</div>
 				<div class="col-md-12 col-lg-6">
@@ -165,8 +173,8 @@
 						<figcaption class="figure-caption text-center">Teapot shading with vertex normals</figcaption>
 					</figure>
 				</div>
-				</div>
 			</div>
+		</div>
 		</div>
 	</section>
 
@@ -176,11 +184,19 @@
 			<div class="row mt-4">
 				<div class="col-md-12 col-lg-6">
 					<h3>How was edge flip implemented?</h3>
-					<p>I first took inventory of all the components present in the pair of triangles (a, b, c) and (c, b, d). This includes, halfedges, faces, verticies, and edges. Afterwards, I just update all the pointers of these components according to how they change after the flip.</p>
+					<p>I first took inventory of all the components present in the pair of triangles
+						<code>(a, b, c)</code> and <code>(c, b, d)</code>. This includes, halfedges, faces, verticies,
+						and edges. Afterwards, I just update all the pointers of these components according to how they
+						change after the flip.
+					</p>
 				</div>
 				<div class="col-md-12 col-lg-6">
 					<h3>Any interesting tricks for implementation/debugging?</h3>
-					<p>I found that using a piece of paper and drawing out the components of the two triangles (a,b, c) and (c, b, d) was really helpful in keeping track where everything was. After drawing out the before and after, all that was left was to read out the locations/positions of the new components.</p>
+					<p>I found that using a piece of paper and drawing out the components of the two triangles
+						<code>(a, b, c)</code> and <code>(c, b, d)</code> was really helpful in keeping track where
+						everything was. After drawing out the before and after, all that was left was to read out the
+						locations/positions of the new components.
+					</p>
 				</div>
 			</div>
 			<div class="row mt-4">
@@ -206,11 +222,18 @@
 			<div class="row mt-4">
 				<div class="col-md-12 col-lg-6">
 					<h3>How was edge split implemented? Any Interesting implementation tricks?</h3>
-					<p>In a similar process to the previous part, I first drew out the before and after of what 2 neighboring triangles would look like during the edge split process. After that, the solution pretty much reads itself out. First by collecting all the components and then updating them as needed.</p>
+					<p>In a similar process to the previous part, I first drew out the before and after of what 2
+						neighboring triangles would look like during the edge split process. After that, the solution
+						pretty much reads itself out. First by collecting all the components and then updating them as
+						needed.</p>
 				</div>
 				<div class="col-md-12 col-lg-6">
 					<h3>Any eventful debugging journeys?</h3>
-					<p>Although I thought this was going to be a quick implementation because of how easy it was to read out the updated components from the drawn diagram I had, I ended up debugging for a while because of an input error. One of the new halfedges was pointing to the wrong edge, leading to a bug when splitting the same edge multiple times. The solution was just to run through the diagram again and fix any misinputs.</p>
+					<p>Although I thought this was going to be a quick implementation because of how easy it was to read
+						out the updated components from the drawn diagram I had, I ended up debugging for a while
+						because of an input error. One of the new halfedges was pointing to the wrong edge, leading to a
+						bug when splitting the same edge multiple times. The solution was just to run through the
+						diagram again and fix any misinputs.</p>
 				</div>
 			</div>
 			<div class="row mt-4">
@@ -223,7 +246,22 @@
 				<div class="col-md-12 col-lg-6">
 					<figure class="figure">
 						<img src="./after_splits.png" class="img-fluid">
-						<figcaption class="figure-caption text-center">After combination of edge splits and flips</figcaption>
+						<figcaption class="figure-caption text-center">After edge splits</figcaption>
+					</figure>
+				</div>
+			</div>
+			<div class="row mt-4">
+				<div class="col-md-12 col-lg-6">
+					<figure class="figure">
+						<img src="./before_splits.png" class="img-fluid">
+						<figcaption class="figure-caption text-center">Before edge splits</figcaption>
+					</figure>
+				</div>
+				<div class="col-md-12 col-lg-6">
+					<figure class="figure">
+						<img src="./after_splits_and_flips.png" class="img-fluid">
+						<figcaption class="figure-caption text-center">After combination of edge splits and flips
+						</figcaption>
 					</figure>
 				</div>
 			</div>
@@ -234,9 +272,104 @@
 		<div class="container">
 			<h2>Part 6: Loop Subdivision for Mesh Upsampling</h2>
 			<div class="row mt-4">
-				<div class="col">
+				<div class="col-md-12 col-lg-6">
 					<h3>How was loop subdivision implemented?</h3>
+					<p>First, I computed the positions of both new and old vertices using the original mesh. These
+						computations came from the lecture slides where we saw the weights to use for placing verticies.
+						Then, I subdivided every edge in the original mesh. Afterwards, I flipped all the new edges that
+						connected an old and new vertex. Finally, I updated all vertex positions in the subdivided mesh.
+					</p>
+				</div>
+				<div class="col-md-12 col-lg-6">
+					<h3>Any interesting implementation tricks you used?</h3>
+					<p>Similar to previous parts of this assignment, I found it really useful to look back at the drawn
+						out diagrams for what a mesh should look like. Specifically, I found my diagram helpful to know
+						which new edges to assign the <code>isNew</code> property because this was something I struggled
+						with figuring out until I referenced back to the diagram.</p>
+				</div>
+			</div>
+			<div class="row mt-4">
+				<div class="col-md-12 col-lg-6">
+					<h3>Observations of how meshes behave after loop subdivision. What happens to sharp corners and
+						edges?</h3>
+					<p>From the screenshots below, I notice that sharp corners and edges smooth out, becoming more like
+						curves. In general, I notice this is the case for all meshes I've looked at. If a mesh is
+						already curved, then loop subdivision maintains the relative curveness of the mesh.</p>
+					<figure class="figure">
+						<img src="./torus_before_subdivision.png" class="img-fluid">
+						<figcaption class="figure-caption text-center">Figure before loop subdivision. Sharp edges and
+							corners are present</figcaption>
+					</figure>
+					<figure class="figure">
+						<img src="./torus_after_subdivision.png" class="img-fluid">
+						<figcaption class="figure-caption text-center">Figure after two iterations of loop subdivision.
+							No sharp edges or corners are present</figcaption>
+					</figure>
+				</div>
+				<div class="col-md-12 col-lg-6">
+					<h3>Can you reduce this effect by pre-splitting some edges?</h3>
+					<p>I was able to reduce this effect slightly by splitting edges such that distances between vertices
+						remains about equal. Below are screenshots showing the preprocessing splits before and after two
+						iterations of loop sampling.</p>
+					<figure class="figure">
+						<img src="./torus_pre_processed.png" class="img-fluid">
+						<figcaption class="figure-caption text-center">Figure preprocessed before loop subdivision
+						</figcaption>
+					</figure>
+					<figure class="figure">
+						<img src="./torus_pre_processed_subdiv.png" class="img-fluid">
+						<figcaption class="figure-caption text-center">Figure preprocessed after 2 iterations of loop
+							subdivision. Edges still remain relatively sharp.</figcaption>
+					</figure>
+				</div>
+			</div>
+			<div class="row mt-4">
+				<div class="col-md-12 col-lg-8">
+					<h3>Perform several iterations of loop subdivision on the cube. Document how the cube becomes
+						asymmetrical after several iterations.</h3>
 					<p>fill dis in</p>
+				</div>
+				<div class="row mt-4">
+					<figure class="figure col-md-12 col-lg-4">
+						<img src="./normal_cube.png" class="img-fluid">
+						<figcaption class="figure-caption text-center">Regular cube before loop subdivision.
+						</figcaption>
+					</figure>
+					<figure class="figure col-md-12 col-lg-4">
+						<img src="./2_iterations_cube.png" class="img-fluid">
+						<figcaption class="figure-caption text-center">cube after two iterations of loop subdivision.
+						</figcaption>
+					</figure>
+					<figure class="figure col-md-12 col-lg-4">
+						<img src="./4_iterations_cube.png" class="img-fluid">
+						<figcaption class="figure-caption text-center">cube after four iterations of loop subdivision.
+						</figcaption>
+					</figure>
+				</div>
+				<div class="row mt-4">
+					<div class="col-md-12 col-lg-8">
+						<h3>Can you pre-process the cube with edge flips and splits so that the cube subdivides
+							symmetrically? Document these effects and explain why they occur. Also explain how your
+							pre-processing helps alleviate the effects.</h3>
+						<p>fill dis in</p>
+					</div>
+				</div>
+				<div class="row mt-4">
+					<figure class="figure col-md-12 col-lg-4">
+						<img src="./pre_processed_cube.png" class="img-fluid">
+						<figcaption class="figure-caption text-center">pre-processed cube before loop
+							subdivision</figcaption>
+					</figure>
+					<figure class="figure col-md-12 col-lg-4">
+						<img src="./2_pre_processed_cube.png" class="img-fluid">
+						<figcaption class="figure-caption text-center">pre-processed cube after two iterations
+							of loop subdivision</figcaption>
+					</figure>
+					<figure class="figure col-md-12 col-lg-4">
+						<img src="./4_pre_processed_cube.png" class="img-fluid">
+						<figcaption class="figure-caption text-center">pre-processed cube after four iterations
+							of loop subdivision</figcaption>
+					</figure>
 				</div>
 			</div>
 		</div>
