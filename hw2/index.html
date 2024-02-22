@@ -57,21 +57,25 @@
 				<code>splitEdge</code>, and with the combination of these two elementary operations,
 				<code>upsample</code> via loop subdivision. In particular, I found this final task of implementing
 				<code>upsample</code> interesting because it was a nice way of building up from the basics up to
-				something much more complex and applicable.</p>
+				something much more complex and applicable.
+			</p>
 		</div>
 	</section>
 
 	<section id="part1" class="bg-body-secondary py-5">
 		<div class="container">
-			<h1>Section 1: Bezier Curves and Surfaces</h1>
+			<h1 class="mb-4">Section 1: Bezier Curves and Surfaces</h1>
 			<h2>Part 1: Bezier Curves with 1D de Casteljau Subdivision</h2>
 			<div class="row mt-4">
 				<div class="col-md-12 col-lg-6">
 					<h3>What is de Casteljau's algorithm?</h3>
-					<p>De Casteljau's algorithm is a way to evaluate Bézier curves and surfaces.</p>
+					<p>De Casteljau's algorithm is a way to evaluate Bézier curves and surfaces. Through a recursive
+						process, this algorithm splits a point between two weights and draws new line segments until
+						there's none left to draw. This is the base case where the final point representes a point on
+						the curve.</p>
 				</div>
 				<div class="col-md-12 col-lg-6">
-					<h3>How was the de Casteljau algorithm used?</h3>
+					<h3>How was the de Casteljau algorithm implemented?</h3>
 					<p>By interpolating between adjacent control points, we recursively divide the curve into smaller
 						parts until we're left with a single point. This point represents a single point on the curve.
 					</p>
@@ -155,7 +159,7 @@
 
 	<section id="part3" class="bg-body-secondary py-5">
 		<div class="container">
-			<h1>Section 2: Triangle Meshes and Half-Edge Data Structure</h1>
+			<h1 class="mb-4">Section 2: Triangle Meshes and Half-Edge Data Structure</h1>
 			<h2>Part 3: Area-Weighted Vertex Normals</h2>
 			<div class="row mt-4">
 				<div class="col">
@@ -194,7 +198,8 @@
 					<p>I first took inventory of all the components present in the pair of triangles
 						<code>(a, b, c)</code> and <code>(c, b, d)</code>. This includes, halfedges, faces, verticies,
 						and edges. Afterwards, I just update all the pointers of these components according to how they
-						change after the flip.
+						change after the flip. Even if some pointers didn't change, I still assigned those just in case
+						I missed any.
 					</p>
 				</div>
 				<div class="col-md-12 col-lg-6">
@@ -315,9 +320,8 @@
 				</div>
 				<div class="col-md-12 col-lg-6">
 					<h3>Can you reduce this effect by pre-splitting some edges?</h3>
-					<p>I was able to reduce this effect slightly by splitting edges such that distances between vertices
-						remains about equal. Below are screenshots showing the preprocessing splits before and after two
-						iterations of loop sampling.</p>
+					<p>I was able to reduce this effect by pre-splitting the sharp edges many times. I wouldn't say that there was a specific pattern or way that splitting these edges would better or worsen the mitigation of this effect. Below are screenshots showing the preprocessing splits before and after two
+						iterations of loop sampling. The pre-processing was only done to the closest face, facing the camera.</p>
 					<figure class="figure">
 						<img src="./torus_pre_processed.png" class="img-fluid">
 						<figcaption class="figure-caption text-center">Figure preprocessed before loop subdivision
@@ -341,7 +345,7 @@
 				<div class="row mt-4">
 					<figure class="figure col-md-12 col-lg-4">
 						<img src="./normal_cube.png" class="img-fluid">
-						<figcaption class="figure-caption text-center">Regular cube before loop subdivision.
+						<figcaption class="figure-caption text-center">cube before loop subdivision.
 						</figcaption>
 					</figure>
 					<figure class="figure col-md-12 col-lg-4">
