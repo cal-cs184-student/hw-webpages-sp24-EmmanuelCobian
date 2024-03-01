@@ -45,10 +45,175 @@
 		</div>
 	</nav>
 
+	<section id="overview">
+		<div class="container my-5">
+			<h1>Homework 3 - Pathtracer</h1>
+			<!-- give a high level overview of what you did in this hw
+				think about what you've build as a whole. Share your thoughts on what interesting things you're learned from completing the homework. -->
+			<p class="lead">In this homework, I ...
+			</p>
+		</div>
+	</section>
+
+	<section id="part1" class="bg-body-secondary py-5">
+		<div class="container">
+			<h1>Part 1: Ray Generation and Scene Intersection</h1>
+			<div class="row mt-4">
+				<div class="col-md-12 col-lg-6">
+					<h3>Walk through of the ray generation and primitive intersection parts of the rendering pipeline</h3>
+					<p>inside <code>raytrace_pixel()</code>, I wrote a loop that calls <code>camera->generate_ray(...)</code> to get camera rays and <code>est_radiance_global_illumination(...)</code> to get the radiance along those rays. When generating rays, I sample based off a unit square to get random samples from a given ray origin and after averaging them, I write that value to the sample buffer.</p>
+				</div>
+				<div class="col-md-12 col-lg-6">
+					<h3>How was triangle intersection algorithm implemented?</h3>
+					<p>By implementing the efficient version of computing triangle intersections from lecture, I add the logic of finding the time, <code>t</code>, when the ray intersects a triangle. If that value is within the established bounding parameters <code>max_t</code> and <code>min_t</code>, then I can say that a particular intersection is valid. After finding out whether an intersection occurs, I update <code>max_t</code> and fill in the fields for the <code>Intersection</code> object like the time of intersection, normal vector, primitive, and the bsdf.</p>
+				</div>
+			</div>
+			<div class="row mt-4">
+				<div class="col-sm-12 col-md-6">
+					<figure class="figure">
+						<img src="./banana_part1.png" class="img-fluid">
+						<figcaption class="figure-caption text-center">Bannana figure with normal shading</figcaption>
+					</figure>
+				</div>
+				<div class="col-sm-12 col-md-6">
+					<figure class="figure">
+						<img src="./coil_part1.png" class="img-fluid">
+						<figcaption class="figure-caption text-center">Coil figure with normal shading</figcaption>
+					</figure>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section id="part2" class="py-5">
+		<div class="container">
+			<h1>Part 2: Bounding Volume Hierarchy</h1>
+			<div class="row mt-4">
+				<div class="col-md-12 col-lg-6">
+					<h3></h3>
+					<p></p>
+					<h3></h3>
+					<p></p>
+				</div>
+				<div class="col-md-12 col-lg-6">
+					<img src="./teapot_part3.png" class="img-fluid">
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section id="part3" class="bg-body-secondary py-5">
+		<div class="container">
+			<h1>Part 3: Direct Illumination</h1>
+			<div class="row mt-4">
+				<div class="col">
+					<h3>How were area-weighted vertex normals implemented?</h3>
+					<p><p>
+				</div>
+			</div>
+			<div class="row mt-4">
+				<div class="col-md-12 col-lg-6">
+					<figure class="figure">
+						<img src="./no_vertex_normals.png" class="img-fluid">
+						<figcaption class="figure-caption text-center">Teapot shading without vertex normals
+						</figcaption>
+					</figure>
+				</div>
+				<div class="col-md-12 col-lg-6">
+					<figure class="figure">
+						<img src="./vertex_normals.png" class="img-fluid">
+						<figcaption class="figure-caption text-center">Teapot shading with vertex normals</figcaption>
+					</figure>
+				</div>
+			</div>
+		</div>
+		</div>
+	</section>
+
+	<section id="part4" class="py-5">
+		<div class="container">
+			<h1>Part 4: Global Illumination</h1>
+			<div class="row mt-4">
+				<div class="col-md-12 col-lg-6">
+					<h3>How was edge flip implemented?</h3>
+					<p></p>
+				</div>
+				<div class="col-md-12 col-lg-6">
+					<h3>Any interesting tricks for implementation/debugging?</h3>
+					<p></p>
+				</div>
+			</div>
+			<div class="row mt-4">
+				<div class="col-md-12 col-lg-6">
+					<figure class="figure">
+						<img src="./before_flips.png" class="img-fluid">
+						<figcaption class="figure-caption text-center">Before Edge Flips</figcaption>
+					</figure>
+				</div>
+				<div class="col-md-12 col-lg-6">
+					<figure class="figure">
+						<img src="./after_flips.png" class="img-fluid">
+						<figcaption class="figure-caption text-center">After Edge Flips</figcaption>
+					</figure>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section id="part5" class="bg-body-secondary py-5">
+		<div class="container">
+			<h2>Part 5: Adaptive Sampling</h2>
+			<div class="row mt-4">
+				<div class="col-md-12 col-lg-6">
+					<h3>How was edge split implemented? Any Interesting implementation tricks?</h3>
+					<p></p>
+				</div>
+				<div class="col-md-12 col-lg-6">
+					<h3>Any eventful debugging journeys?</h3>
+					<p></p>
+				</div>
+			</div>
+			<div class="row mt-4">
+				<div class="col-md-12 col-lg-6">
+					<figure class="figure">
+						<img src="./before_splits.png" class="img-fluid">
+						<figcaption class="figure-caption text-center">Before edge splits</figcaption>
+					</figure>
+				</div>
+				<div class="col-md-12 col-lg-6">
+					<figure class="figure">
+						<img src="./after_splits.png" class="img-fluid">
+						<figcaption class="figure-caption text-center">After edge splits</figcaption>
+					</figure>
+				</div>
+			</div>
+			<div class="row mt-4">
+				<div class="col-md-12 col-lg-6">
+					<figure class="figure">
+						<img src="./before_splits.png" class="img-fluid">
+						<figcaption class="figure-caption text-center">Before edge splits</figcaption>
+					</figure>
+				</div>
+				<div class="col-md-12 col-lg-6">
+					<figure class="figure">
+						<img src="./after_splits_and_flips.png" class="img-fluid">
+						<figcaption class="figure-caption text-center">After combination of edge splits and flips
+						</figcaption>
+					</figure>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<footer>
+		<div class="container my-5">
+			<p class="text-center">Emmanuel Cobian Duarte - CS 184 - Spring 2024</p>
+		</div>
+	</footer>
+
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-		integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-		crossorigin="anonymous">
-	</script>
+		integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+		</script>
 </body>
 
 </html>
