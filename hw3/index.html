@@ -82,6 +82,20 @@
 					</figure>
 				</div>
 			</div>
+			<div class="row mt-4">
+				<div class="col-sm-12 col-md-6">
+					<figure class="figure">
+						<img src="./cube_part1.png" class="img-fluid">
+						<figcaption class="figure-caption text-center">Cube figure with normal shading</figcaption>
+					</figure>
+				</div>
+				<div class="col-sm-12 col-md-6">
+					<figure class="figure">
+						<img src="./spheres_part1.png" class="img-fluid">
+						<figcaption class="figure-caption text-center">Sphere figures with normal shading</figcaption>
+					</figure>
+				</div>
+			</div>
 		</div>
 	</section>
 
@@ -90,13 +104,46 @@
 			<h1>Part 2: Bounding Volume Hierarchy</h1>
 			<div class="row mt-4">
 				<div class="col-md-12 col-lg-6">
-					<h3></h3>
-					<p></p>
-					<h3></h3>
-					<p></p>
+					<h3>Walk through BVH construction algorithm.</h3>
+					<p>I start out by creating a new <coude>BBox</coude> and adding all the current primitives in it. After, I put this <code>BBox</code> inside a <code>BVHNode</code> instance and check whether this node has less than <code>max_leaf_size</code> number of primitives. If it does, then this is considered a leaf node and I return it with the appropriate assignments of <code>start</code> and <code>end</code>. If the node contains more primitives, then I split them into left and right partitions and recursively assign the left and right children of the parent <code>BVHNode</code>.</p>
 				</div>
 				<div class="col-md-12 col-lg-6">
-					<img src="./teapot_part3.png" class="img-fluid">
+					<h3>What heuristic was used for picking the splitting point?</h3>
+					<p>I decided to split the primitives along the middle of the y-axis. I thought this was a good heuristic because it was easy to implement and I find it a good general fit for the large .dae files I tested. One flaw about this heuristic is that if the figure being rendered isn't aligned with the y-axis, then the rendering takes a long time. This makes sense because when looking at a figure from above, for example, the program needs to check for a lot of intersections as opposed to when the camera is facing the figure head on.</p>
+				</div>
+			</div>
+			<div class="row mt-4">
+				<div class="col-md-12 col-lg-6">
+					<figure class="figure">
+						<img src="./lucy_part2.png" class="img-fluid">
+						<figcaption class="figure-caption text-center">Lucy figure with normal shading & BVH</figcaption>
+					</figure>
+				</div>
+				<div class="col-md-12 col-lg-6">
+					<figure class="figure">
+						<img src="./peter_part2.png" class="img-fluid">
+						<figcaption class="figure-caption text-center">Peter bust with normal shading & BVH</figcaption>
+					</figure>
+				</div>
+			</div>
+			<div class="row mt-4">
+				<div class="col-md-12 col-lg-6">
+					<figure class="figure">
+						<img src="./beast_part2.png" class="img-fluid">
+						<figcaption class="figure-caption text-center">Beast model with normal shading & BVH</figcaption>
+					</figure>
+				</div>
+				<div class="col-md-12 col-lg-6">
+					<figure class="figure">
+						<img src="./wall_e_part2.png" class="img-fluid">
+						<figcaption class="figure-caption text-center">Wall-e model with normal shading & BVH</figcaption>
+					</figure>
+				</div>
+			</div>
+			<div class="row mt-4">
+				<div class="col">
+					<h3>Compare rendering times on a few scenes with moderately complex geometris with and without BVH acceleration.</h3>
+					<p>When rendering the scenes with BVH acceleration, rendering times were magnitudes better. For example, when rendering the CBLucy.dae model, the rendering time was <strong>189.8450s</strong> without BVH acceleration and <strong>0.1983s</strong>  with BVH acceleration. Another example, with the peter.dae scene, the rendering time was <strong>16.9840s</strong> without BVH acceleration and <strong>0.5076s</strong> with BVH acceleration. This is a significant improvement and it's clear that BVH acceleration is a good technique to use when rendering complex scenes. <br/>By definition, it makes sense that the speed up is so large when using BVH acceleration because for a scene, the program only needs to check for intersections in areas where it crosses bounding boxes. This optimization allows us to short circuit a lot of computation since it's unlikely that a ray will intersect a majority of the primitives.</p>
 				</div>
 			</div>
 		</div>
@@ -107,23 +154,14 @@
 			<h1>Part 3: Direct Illumination</h1>
 			<div class="row mt-4">
 				<div class="col">
-					<h3>How were area-weighted vertex normals implemented?</h3>
+					<h3></h3>
 					<p><p>
 				</div>
 			</div>
 			<div class="row mt-4">
 				<div class="col-md-12 col-lg-6">
-					<figure class="figure">
-						<img src="./no_vertex_normals.png" class="img-fluid">
-						<figcaption class="figure-caption text-center">Teapot shading without vertex normals
-						</figcaption>
-					</figure>
 				</div>
 				<div class="col-md-12 col-lg-6">
-					<figure class="figure">
-						<img src="./vertex_normals.png" class="img-fluid">
-						<figcaption class="figure-caption text-center">Teapot shading with vertex normals</figcaption>
-					</figure>
 				</div>
 			</div>
 		</div>
@@ -135,26 +173,18 @@
 			<h1>Part 4: Global Illumination</h1>
 			<div class="row mt-4">
 				<div class="col-md-12 col-lg-6">
-					<h3>How was edge flip implemented?</h3>
+					<h3></h3>
 					<p></p>
 				</div>
 				<div class="col-md-12 col-lg-6">
-					<h3>Any interesting tricks for implementation/debugging?</h3>
+					<h3></h3>
 					<p></p>
 				</div>
 			</div>
 			<div class="row mt-4">
 				<div class="col-md-12 col-lg-6">
-					<figure class="figure">
-						<img src="./before_flips.png" class="img-fluid">
-						<figcaption class="figure-caption text-center">Before Edge Flips</figcaption>
-					</figure>
 				</div>
 				<div class="col-md-12 col-lg-6">
-					<figure class="figure">
-						<img src="./after_flips.png" class="img-fluid">
-						<figcaption class="figure-caption text-center">After Edge Flips</figcaption>
-					</figure>
 				</div>
 			</div>
 		</div>
@@ -162,44 +192,27 @@
 
 	<section id="part5" class="bg-body-secondary py-5">
 		<div class="container">
-			<h2>Part 5: Adaptive Sampling</h2>
+			<h1>Part 5: Adaptive Sampling</h1>
 			<div class="row mt-4">
 				<div class="col-md-12 col-lg-6">
-					<h3>How was edge split implemented? Any Interesting implementation tricks?</h3>
+					<h3></h3>
 					<p></p>
 				</div>
 				<div class="col-md-12 col-lg-6">
-					<h3>Any eventful debugging journeys?</h3>
+					<h3></h3>
 					<p></p>
 				</div>
 			</div>
 			<div class="row mt-4">
 				<div class="col-md-12 col-lg-6">
-					<figure class="figure">
-						<img src="./before_splits.png" class="img-fluid">
-						<figcaption class="figure-caption text-center">Before edge splits</figcaption>
-					</figure>
 				</div>
 				<div class="col-md-12 col-lg-6">
-					<figure class="figure">
-						<img src="./after_splits.png" class="img-fluid">
-						<figcaption class="figure-caption text-center">After edge splits</figcaption>
-					</figure>
 				</div>
 			</div>
 			<div class="row mt-4">
 				<div class="col-md-12 col-lg-6">
-					<figure class="figure">
-						<img src="./before_splits.png" class="img-fluid">
-						<figcaption class="figure-caption text-center">Before edge splits</figcaption>
-					</figure>
 				</div>
 				<div class="col-md-12 col-lg-6">
-					<figure class="figure">
-						<img src="./after_splits_and_flips.png" class="img-fluid">
-						<figcaption class="figure-caption text-center">After combination of edge splits and flips
-						</figcaption>
-					</figure>
 				</div>
 			</div>
 		</div>
