@@ -60,12 +60,23 @@
 			<h1>Part 1: Ray Generation and Scene Intersection</h1>
 			<div class="row mt-4">
 				<div class="col-md-12 col-lg-6">
-					<h3>Walk through of the ray generation and primitive intersection parts of the rendering pipeline</h3>
-					<p>inside <code>raytrace_pixel()</code>, I wrote a loop that calls <code>camera->generate_ray(...)</code> to get camera rays and <code>est_radiance_global_illumination(...)</code> to get the radiance along those rays. When generating rays, I sample based off a unit square to get random samples from a given ray origin and after averaging them, I write that value to the sample buffer.</p>
+					<h3>Walk through of the ray generation and primitive intersection parts of the rendering pipeline
+					</h3>
+					<p>inside <code>raytrace_pixel()</code>, I wrote a loop that calls
+						<code>camera->generate_ray(...)</code> to get camera rays and
+						<code>est_radiance_global_illumination(...)</code> to get the radiance along those rays. When
+						generating rays, I sample based off a unit square to get random samples from a given ray origin
+						and after averaging them, I write that value to the sample buffer.
+					</p>
 				</div>
 				<div class="col-md-12 col-lg-6">
 					<h3>How was triangle intersection algorithm implemented?</h3>
-					<p>By implementing the efficient version of computing triangle intersections from lecture, I add the logic of finding the time, <code>t</code>, when the ray intersects a triangle. If that value is within the established bounding parameters <code>max_t</code> and <code>min_t</code>, then I can say that a particular intersection is valid. After finding out whether an intersection occurs, I update <code>max_t</code> and fill in the fields for the <code>Intersection</code> object like the time of intersection, normal vector, primitive, and the bsdf.</p>
+					<p>By implementing the efficient version of computing triangle intersections from lecture, I add the
+						logic of finding the time, <code>t</code>, when the ray intersects a triangle. If that value is
+						within the established bounding parameters <code>max_t</code> and <code>min_t</code>, then I can
+						say that a particular intersection is valid. After finding out whether an intersection occurs, I
+						update <code>max_t</code> and fill in the fields for the <code>Intersection</code> object like
+						the time of intersection, normal vector, primitive, and the bsdf.</p>
 				</div>
 			</div>
 			<div class="row mt-4">
@@ -105,24 +116,39 @@
 			<div class="row mt-4">
 				<div class="col-md-12 col-lg-6">
 					<h3>Walk through BVH construction algorithm.</h3>
-					<p>I start out by creating a new <coude>BBox</coude> and adding all the current primitives in it. After, I put this <code>BBox</code> inside a <code>BVHNode</code> instance and check whether this node has less than <code>max_leaf_size</code> number of primitives. If it does, then this is considered a leaf node and I return it with the appropriate assignments of <code>start</code> and <code>end</code>. If the node contains more primitives, then I split them into left and right partitions and recursively assign the left and right children of the parent <code>BVHNode</code>.</p>
+					<p>I start out by creating a new <coude>BBox</coude> and adding all the current primitives in it.
+						After, I put this <code>BBox</code> inside a <code>BVHNode</code> instance and check whether
+						this node has less than <code>max_leaf_size</code> number of primitives. If it does, then this
+						is considered a leaf node and I return it with the appropriate assignments of <code>start</code>
+						and <code>end</code>. If the node contains more primitives, then I split them into left and
+						right partitions and recursively assign the left and right children of the parent
+						<code>BVHNode</code>.
+					</p>
 				</div>
 				<div class="col-md-12 col-lg-6">
 					<h3>What heuristic was used for picking the splitting point?</h3>
-					<p>I decided to split the primitives along the middle of the y-axis. I thought this was a good heuristic because it was easy to implement and I find it a good general fit for the large .dae files I tested. One flaw about this heuristic is that if the figure being rendered isn't aligned with the y-axis, then the rendering takes a long time. This makes sense because when looking at a figure from above, for example, the program needs to check for a lot of intersections as opposed to when the camera is facing the figure head on.</p>
+					<p>I decided to split the primitives along the middle axis that has the smallest value of
+						<code>&lt;l, l&gt; + &lt;r, r&gt;</code> where <code>l</code> and <code>r</code> are the
+						<code>BBox</code> elements containing left and right primitives. These primitives were split on
+						the mean of each axis' centroid values. I found this heuristic sort of by trial and error. I
+						initially had a simple y-axis split heuristic but it caused a lot of slow down when rendering
+						scenes in later parts of this hw, so I came back to this and tried out a lot of combinations
+						until I landed on this one that seems to perform pretty well.
+					</p>
 				</div>
 			</div>
 			<div class="row mt-4">
 				<div class="col-md-12 col-lg-6">
 					<figure class="figure">
 						<img src="./lucy_part2.png" class="img-fluid">
-						<figcaption class="figure-caption text-center">Lucy figure with normal shading & BVH</figcaption>
+						<figcaption class="figure-caption text-center">CBlucy.dae with normal shading & BVH
+						</figcaption>
 					</figure>
 				</div>
 				<div class="col-md-12 col-lg-6">
 					<figure class="figure">
 						<img src="./peter_part2.png" class="img-fluid">
-						<figcaption class="figure-caption text-center">Peter bust with normal shading & BVH</figcaption>
+						<figcaption class="figure-caption text-center">peter.dae with normal shading & BVH</figcaption>
 					</figure>
 				</div>
 			</div>
@@ -130,20 +156,32 @@
 				<div class="col-md-12 col-lg-6">
 					<figure class="figure">
 						<img src="./beast_part2.png" class="img-fluid">
-						<figcaption class="figure-caption text-center">Beast model with normal shading & BVH</figcaption>
+						<figcaption class="figure-caption text-center">beast.dae with normal shading & BVH
+						</figcaption>
 					</figure>
 				</div>
 				<div class="col-md-12 col-lg-6">
 					<figure class="figure">
 						<img src="./wall_e_part2.png" class="img-fluid">
-						<figcaption class="figure-caption text-center">Wall-e model with normal shading & BVH</figcaption>
+						<figcaption class="figure-caption text-center">wall-e.dae with normal shading & BVH
+						</figcaption>
 					</figure>
 				</div>
 			</div>
 			<div class="row mt-4">
 				<div class="col">
-					<h3>Compare rendering times on a few scenes with moderately complex geometris with and without BVH acceleration.</h3>
-					<p>When rendering the scenes with BVH acceleration, rendering times were magnitudes better. For example, when rendering the CBLucy.dae model, the rendering time was <strong>189.8450s</strong> without BVH acceleration and <strong>0.1983s</strong>  with BVH acceleration. Another example, with the peter.dae scene, the rendering time was <strong>16.9840s</strong> without BVH acceleration and <strong>0.5076s</strong> with BVH acceleration. This is a significant improvement and it's clear that BVH acceleration is a good technique to use when rendering complex scenes. <br/>By definition, it makes sense that the speed up is so large when using BVH acceleration because for a scene, the program only needs to check for intersections in areas where it crosses bounding boxes. This optimization allows us to short circuit a lot of computation since it's unlikely that a ray will intersect a majority of the primitives.</p>
+					<h3>Compare rendering times on a few scenes with moderately complex geometris with and without BVH
+						acceleration.</h3>
+					<p>When rendering the scenes with BVH acceleration, rendering times were magnitudes better. For
+						example, when rendering the CBlucy.dae model, the rendering time was <strong>189.8450s</strong>
+						without BVH acceleration and <strong>0.1983s</strong> with BVH acceleration. Another example,
+						with the peter.dae scene, the rendering time was <strong>16.9840s</strong> without BVH
+						acceleration and <strong>0.5076s</strong> with BVH acceleration. This is a significant
+						improvement and it's clear that BVH acceleration is a good technique to use when rendering
+						complex scenes. <br />By definition, it makes sense that the speed up is so large when using BVH
+						acceleration because for a scene, the program only needs to check for intersections in areas
+						where it crosses bounding boxes. This optimization allows us to short circuit a lot of
+						computation since it's unlikely that a ray will intersect a majority of the primitives.</p>
 				</div>
 			</div>
 		</div>
@@ -154,17 +192,75 @@
 			<h1>Part 3: Direct Illumination</h1>
 			<div class="row mt-4">
 				<div class="col">
-					<h3></h3>
-					<p><p>
+					<h3>Walk through both implementations of the direct lighting function</h3>
+					<p>For hemisphere sampling, I first establish the probability density function as <code>1/PI</code>.
+						Afterwards, I draw uniform <code>num_samples</code> from the hemisphere using this pdf. With
+						each sample, <code>wi</code>, I find the bsdf of the intersection between the sample and
+						<code>w_out</code>. Then, I build a new ray with <code>hit_p</code> as the origin and
+						<code>wi</code> as the direction. If it's the case that this casted ray intersects the
+						<code>bvh</code>, then this sample is added to the total contribution <code>L_out</code>.
+						Finally, this term is normalized by the number of samples and the pdf. On the other hand,
+						lighting sampling isn't all that different from hemisphere sampling. Now instead of just
+						sampling uniform <code>num_samples</code>, we draw samples from the lights directly. So now, I
+						add an outer for loop that iterates over the light sources in the scene. The implementation is
+						pretty much the same from there.</p>
 				</div>
 			</div>
 			<div class="row mt-4">
+				<h3 class="my-4">Images rendered with both implementations of the direct lighting function</h3>
 				<div class="col-md-12 col-lg-6">
+					<p class="text-center">Uniform Hemisphere Sampling</p>
+					<figure class="figure">
+						<img src="./bunny_hem_part3.png" class="img-fluid">
+						<figcaption class="figure-caption text-center">bunny.dae</figcaption>
+					</figure>
+					<figure class="figure">
+						<img src="./coil_hem_part3.png" class="img-fluid">
+						<figcaption class="figure-caption text-center">coil.dae</figcaption>
+					</figure>
 				</div>
 				<div class="col-md-12 col-lg-6">
+					<p class="text-center">Light Sampling</p>
+					<figure class="figure">
+						<img src="./bunny_light_part3.png" class="img-fluid">
+						<figcaption class="figure-caption text-center">bunny.dae</figcaption>
+					</figure>
+					<figure class="figure">
+						<img src="./coil_light_part3.png" class="img-fluid">
+						<figcaption class="figure-caption text-center">coil.dae</figcaption>
+					</figure>
 				</div>
 			</div>
-		</div>
+			<div class="row mt-4">
+				<h3 class="my-4">Soft shadow noise comparison with different light ray values</h3>
+				<div class="col-md-12 col-lg-6">
+					<figure class="figure">
+						<img src="./bunny_l1.png" class="img-fluid">
+						<figcaption class="figure-caption text-center">bunny.dae, 1 light ray</figcaption>
+					</figure>
+					<figure class="figure">
+						<img src="./bunny_l4.png" class="img-fluid">
+						<figcaption class="figure-caption text-center">bunny.dae, 4 light rays</figcaption>
+					</figure>
+				</div>
+				<div class="col-md-12 col-lg-6">
+					<figure class="figure">
+						<img src="./bunny_l16.png" class="img-fluid">
+						<figcaption class="figure-caption text-center">bunny.dae, 16 light rays</figcaption>
+					</figure>
+					<figure class="figure">
+						<img src="./bunny_l64.png" class="img-fluid">
+						<figcaption class="figure-caption text-center">bunny.dae, 64 light rays</figcaption>
+					</figure>
+				</div>
+				<p>I notice a general trend that with higher light ray counts comes less soft shadow noise. When looking at 1 light ray vs 64 light rays, the difference is night and day. Soft shadows for 1 light ray are very scattered, it's easy to see the harsh noise on the ground below the bunny's haed. When there's 64 light rays, however, it's much harder to even notice any noise at first glance.</p>
+			</div>
+			<div class="row mt-4">
+				<div class="col">
+					<h3>Uniform hemisphere sampling vs lighting sampling results</h3>
+					<p>Overall, I would say that when using the same number and values of parameters for the different types of sampling, lighting sampling is always better. While hemisphere lighting does eventually converge, it takes a larger value of rays and samples per ray to get similar results as light sampling with fewer samples and rays. Intuitively, this makes sense because...</p>
+				</div>
+			</div>
 		</div>
 	</section>
 
