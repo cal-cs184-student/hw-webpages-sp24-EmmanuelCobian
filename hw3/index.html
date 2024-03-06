@@ -82,13 +82,13 @@
 			<div class="row mt-4">
 				<div class="col-sm-12 col-md-6">
 					<figure class="figure">
-						<img src="./banana_part1.png" class="img-fluid">
+						<img src="./part1/banana_part1.png" class="img-fluid">
 						<figcaption class="figure-caption text-center">Bannana figure with normal shading</figcaption>
 					</figure>
 				</div>
 				<div class="col-sm-12 col-md-6">
 					<figure class="figure">
-						<img src="./coil_part1.png" class="img-fluid">
+						<img src="./part1/coil_part1.png" class="img-fluid">
 						<figcaption class="figure-caption text-center">Coil figure with normal shading</figcaption>
 					</figure>
 				</div>
@@ -96,13 +96,13 @@
 			<div class="row mt-4">
 				<div class="col-sm-12 col-md-6">
 					<figure class="figure">
-						<img src="./cube_part1.png" class="img-fluid">
+						<img src="./part1/cube_part1.png" class="img-fluid">
 						<figcaption class="figure-caption text-center">Cube figure with normal shading</figcaption>
 					</figure>
 				</div>
 				<div class="col-sm-12 col-md-6">
 					<figure class="figure">
-						<img src="./spheres_part1.png" class="img-fluid">
+						<img src="./part1/spheres_part1.png" class="img-fluid">
 						<figcaption class="figure-caption text-center">Sphere figures with normal shading</figcaption>
 					</figure>
 				</div>
@@ -140,14 +140,14 @@
 			<div class="row mt-4">
 				<div class="col-md-12 col-lg-6">
 					<figure class="figure">
-						<img src="./lucy_part2.png" class="img-fluid">
+						<img src="./part2/lucy_part2.png" class="img-fluid">
 						<figcaption class="figure-caption text-center">CBlucy.dae with normal shading & BVH
 						</figcaption>
 					</figure>
 				</div>
 				<div class="col-md-12 col-lg-6">
 					<figure class="figure">
-						<img src="./peter_part2.png" class="img-fluid">
+						<img src="./part2/peter_part2.png" class="img-fluid">
 						<figcaption class="figure-caption text-center">peter.dae with normal shading & BVH</figcaption>
 					</figure>
 				</div>
@@ -155,14 +155,14 @@
 			<div class="row mt-4">
 				<div class="col-md-12 col-lg-6">
 					<figure class="figure">
-						<img src="./beast_part2.png" class="img-fluid">
+						<img src="./part2/beast_part2.png" class="img-fluid">
 						<figcaption class="figure-caption text-center">beast.dae with normal shading & BVH
 						</figcaption>
 					</figure>
 				</div>
 				<div class="col-md-12 col-lg-6">
 					<figure class="figure">
-						<img src="./wall_e_part2.png" class="img-fluid">
+						<img src="./part2/wall_e_part2.png" class="img-fluid">
 						<figcaption class="figure-caption text-center">wall-e.dae with normal shading & BVH
 						</figcaption>
 					</figure>
@@ -203,7 +203,8 @@
 						lighting sampling isn't all that different from hemisphere sampling. Now instead of just
 						sampling uniform <code>num_samples</code>, we draw samples from the lights directly. So now, I
 						add an outer for loop that iterates over the light sources in the scene. The implementation is
-						pretty much the same from there.</p>
+						pretty much the same from there.
+					</p>
 				</div>
 			</div>
 			<div class="row mt-4">
@@ -211,54 +212,64 @@
 				<div class="col-md-12 col-lg-6">
 					<p class="text-center">Uniform Hemisphere Sampling</p>
 					<figure class="figure">
-						<img src="./bunny_hem_part3.png" class="img-fluid">
+						<img src="./part3/bunny_hem_part3.png" class="img-fluid">
 						<figcaption class="figure-caption text-center">bunny.dae</figcaption>
 					</figure>
 					<figure class="figure">
-						<img src="./coil_hem_part3.png" class="img-fluid">
+						<img src="./part3/coil_hem_part3.png" class="img-fluid">
 						<figcaption class="figure-caption text-center">coil.dae</figcaption>
 					</figure>
 				</div>
 				<div class="col-md-12 col-lg-6">
 					<p class="text-center">Light Sampling</p>
 					<figure class="figure">
-						<img src="./bunny_light_part3.png" class="img-fluid">
+						<img src="./part3/bunny_light_part3.png" class="img-fluid">
 						<figcaption class="figure-caption text-center">bunny.dae</figcaption>
 					</figure>
 					<figure class="figure">
-						<img src="./coil_light_part3.png" class="img-fluid">
+						<img src="./part3/coil_light_part3.png" class="img-fluid">
 						<figcaption class="figure-caption text-center">coil.dae</figcaption>
 					</figure>
 				</div>
 			</div>
 			<div class="row mt-4">
-				<h3 class="my-4">Soft shadow noise comparison with different light ray values</h3>
+				<h3 class="mt-4">Soft shadow noise comparison with different light ray values</h3>
+				<p>I notice a general trend that with higher light ray counts comes less soft shadow noise. When looking
+					at 1 light ray vs 64 light rays, the difference is night and day. Soft shadows for 1 light ray are
+					very scattered, it's easy to see the harsh noise on the ground below the bunny's haed. When there's
+					64 light rays, however, it's much harder to even notice any noise at first glance.</p>
 				<div class="col-md-12 col-lg-6">
 					<figure class="figure">
-						<img src="./bunny_l1.png" class="img-fluid">
-						<figcaption class="figure-caption text-center">bunny.dae, 1 light ray</figcaption>
+						<img src="./part3/bunny_l1.png" class="img-fluid">
+						<figcaption class="figure-caption text-center">1 light ray</figcaption>
 					</figure>
 					<figure class="figure">
-						<img src="./bunny_l4.png" class="img-fluid">
-						<figcaption class="figure-caption text-center">bunny.dae, 4 light rays</figcaption>
+						<img src="./part3/bunny_l4.png" class="img-fluid">
+						<figcaption class="figure-caption text-center">4 light rays</figcaption>
 					</figure>
 				</div>
 				<div class="col-md-12 col-lg-6">
 					<figure class="figure">
-						<img src="./bunny_l16.png" class="img-fluid">
-						<figcaption class="figure-caption text-center">bunny.dae, 16 light rays</figcaption>
+						<img src="./part3/bunny_l16.png" class="img-fluid">
+						<figcaption class="figure-caption text-center">16 light rays</figcaption>
 					</figure>
 					<figure class="figure">
-						<img src="./bunny_l64.png" class="img-fluid">
-						<figcaption class="figure-caption text-center">bunny.dae, 64 light rays</figcaption>
+						<img src="./part3/bunny_l64.png" class="img-fluid">
+						<figcaption class="figure-caption text-center">64 light rays</figcaption>
 					</figure>
 				</div>
-				<p>I notice a general trend that with higher light ray counts comes less soft shadow noise. When looking at 1 light ray vs 64 light rays, the difference is night and day. Soft shadows for 1 light ray are very scattered, it's easy to see the harsh noise on the ground below the bunny's haed. When there's 64 light rays, however, it's much harder to even notice any noise at first glance.</p>
+
 			</div>
 			<div class="row mt-4">
 				<div class="col">
 					<h3>Uniform hemisphere sampling vs lighting sampling results</h3>
-					<p>Overall, I would say that when using the same number and values of parameters for the different types of sampling, lighting sampling is always better. While hemisphere lighting does eventually converge, it takes a larger value of rays and samples per ray to get similar results as light sampling with fewer samples and rays. Intuitively, this makes sense because with light sampling, we narrow the scope of where we sample to only the directions that face a light source. On the other hand, hemisphere lighting is just pointing in an random direction within the entire scene. </p>
+					<p>Overall, I would say that when using the same number and values of parameters for the different
+						types of sampling, lighting sampling is always better. While hemisphere lighting does eventually
+						converge, it takes a larger value of rays and samples per ray to get similar results as light
+						sampling with fewer samples and rays. Intuitively, this makes sense because with light sampling,
+						we narrow the scope of where we sample to only the directions that face a light source. On the
+						other hand, hemisphere lighting is just pointing in an random direction within the entire scene.
+					</p>
 				</div>
 			</div>
 		</div>
@@ -268,19 +279,236 @@
 		<div class="container">
 			<h1>Part 4: Global Illumination</h1>
 			<div class="row mt-4">
+				<div class="col">
+					<h3>How was indirect lighting implemented?</h3>
+					<p>Inside the <code>at_least_one_bounce_radiance(...)</code> function, I add the logic for
+						accumulating indirect light bounces of length <code>N</code> paths. I first gather the radiance
+						for a single bounce given the current ray and intersections, then I check whether we continue
+						this recurssion based on the russian roulette rule. I set my probability of termination equal to
+						<code>0.35</code> then call <code>coin_flip(...)</code> to test whether this computation
+						continues. If it does, then I sample the bsdf to generate an outgoing direction,
+						<code>wi</code>. Then, I create a new ray with origin <code>hit_p</code> and direction
+						<code>wi</code>. Afterwards, I check whether this new ray intersects the <code>bvh</code> and if
+						it does, then I recursively call <code>at_least_one_bounce_radiance(...)</code> to get the light
+						bounces from the rest of the iterations.
+					</p>
+				</div>
+			</div>
+			<div class="row mt-4">
+				<h3>Images rendered with global illumination</h3>
 				<div class="col-md-12 col-lg-6">
-					<h3></h3>
-					<p></p>
+					<figure class="figure">
+						<img src="./part4/bunny_general.png" class="img-fluid">
+						<figcaption class="figure-caption text-center">bunny.dae</figcaption>
+					</figure>
 				</div>
 				<div class="col-md-12 col-lg-6">
-					<h3></h3>
-					<p></p>
+					<figure class="figure">
+						<img src="./part4/spheres_general.png" class="img-fluid">
+						<figcaption class="figure-caption text-center">sheres.dae</figcaption>
+					</figure>
+				</div>
+			</div>
+			<div class="row mt-4">
+				<h3>How does only direct illumination compare to only indirect illumination?</h3>
+				<p>I notice that direct illumination mostly addresses hard shadows, while indirect shadows addresses soft shadows. When looking at the left and right walls, I notice that shadows casted by the spheres is absent in the direct illumination render but present in the indirect illumination render. Additionally, I notice that the floor has a slight tint of color from the light that bounces off of the walls. I think this is a pretty unique and interesting feature about indirect lighting that really brings the image together.</p>
+				<div class="col-md-12 col-lg-6">
+					<figure class="figure">
+						<img src="./part4/spheres_direct_only.png" class="img-fluid">
+						<figcaption class="figure-caption text-center">direct illumination only</figcaption>
+					</figure>
+				</div>
+				<div class="col-md-12 col-lg-6">
+					<figure class="figure">
+						<img src="./part4/spheres_indirect.png" class="img-fluid">
+						<figcaption class="figure-caption text-center">indirect illumination only</figcaption>
+					</figure>
+				</div>
+			</div>
+			<div class="row mt-4">
+				<h3>Render the mth light bounce. What happens for the 2nd and 3rd bounce of light? How does it
+					contribute to the quality of the
+					rendered image compared to rasterization?</h3>
+				<p>Between the 2nd and 3rd bounce renders, I notice that the image in general gets much darker, especially the bunny. This makes sense because by the 3rd bounce, most of the light has dispersed or been absorbed by the surrounding objects. In terms of the quality of the rendered image compared to the rasterization, I'd say that it adds a lot of definition to the render. Soft shadows are defined and color is diffused in a way that makes the render look more like real life.</p>
+				<div class="col-md-12 col-lg-6">
+					<figure class="figure">
+						<img src="./part4/bunny_0th_bounces.png" class="img-fluid">
+						<figcaption class="figure-caption text-center">0th bounce</figcaption>
+					</figure>
+				</div>
+				<div class="col-md-12 col-lg-6">
+					<figure class="figure">
+						<img src="./part4/bunny_1st_bounce.png" class="img-fluid">
+						<figcaption class="figure-caption text-center">1st bounce</figcaption>
+					</figure>
 				</div>
 			</div>
 			<div class="row mt-4">
 				<div class="col-md-12 col-lg-6">
+					<figure class="figure">
+						<img src="./part4/bunny_2nd_bounce.png" class="img-fluid">
+						<figcaption class="figure-caption text-center">2nd bounce</figcaption>
+					</figure>
 				</div>
 				<div class="col-md-12 col-lg-6">
+					<figure class="figure">
+						<img src="./part4/bunny_3rd_bounce.png" class="img-fluid">
+						<figcaption class="figure-caption text-center">3rd bounce</figcaption>
+					</figure>
+				</div>
+			</div>
+			<div class="row mt-4">
+				<div class="col-md-12 col-lg-6">
+					<figure class="figure">
+						<img src="./part4/bunny_4th_bounce.png" class="img-fluid">
+						<figcaption class="figure-caption text-center">4th bounce</figcaption>
+					</figure>
+				</div>
+				<div class="col-md-12 col-lg-6">
+					<figure class="figure">
+						<img src="./part4/bunny_5th_bounce.png" class="img-fluid">
+						<figcaption class="figure-caption text-center">5th bounce</figcaption>
+					</figure>
+				</div>
+			</div>
+			<div class="row mt-4">
+				<h3>How do rendered images look with different ray depths? (without Russian Roulette)</h3>
+				<p>fill dis in</p>
+				<div class="col-md-12 col-lg-6">
+					<figure class="figure">
+						<img src="./part4/bunny_0th_bounces.png" class="img-fluid">
+						<figcaption class="figure-caption text-center">ray depth 0</figcaption>
+					</figure>
+				</div>
+				<div class="col-md-12 col-lg-6">
+					<figure class="figure">
+						<img src="./part4/" class="img-fluid">
+						<figcaption class="figure-caption text-center">1 ray depth</figcaption>
+					</figure>
+				</div>
+			</div>
+			<div class="row mt-4">
+				<div class="col-md-12 col-lg-6">
+					<figure class="figure">
+						<img src="./bunny_global_part4.png" class="img-fluid">
+						<figcaption class="figure-caption text-center">2 ray depths</figcaption>
+					</figure>
+				</div>
+				<div class="col-md-12 col-lg-6">
+					<figure class="figure">
+						<img src="./part4/bunny_3_bounces_nrr.png" class="img-fluid">
+						<figcaption class="figure-caption text-center">3 ray depths</figcaption>
+					</figure>
+				</div>
+			</div>
+			<div class="row mt-4">
+				<div class="col-md-12 col-lg-6">
+					<figure class="figure">
+						<img src="./part4/bunny_4_bounces_nrr.png" class="img-fluid">
+						<figcaption class="figure-caption text-center">4 ray depths</figcaption>
+					</figure>
+				</div>
+				<div class="col-md-12 col-lg-6">
+					<figure class="figure">
+						<img src="./part4/bunny_5_bounces_nrr.png" class="img-fluid">
+						<figcaption class="figure-caption text-center">5 ray depths</figcaption>
+					</figure>
+				</div>
+			</div>
+			<div class="row mt-4">
+				<h3>How do rendered images look with different ray depths? (with Russian Roulette)</h3>
+				<p>fill dis in</p>
+				<div class="col-md-12 col-lg-6">
+					<figure class="figure">
+						<img src="./part4/bunny_0_bounces.png" class="img-fluid">
+						<figcaption class="figure-caption text-center">ray depth 0</figcaption>
+					</figure>
+				</div>
+				<div class="col-md-12 col-lg-6">
+					<figure class="figure">
+						<img src="./part4/bunny_1_bounces.png" class="img-fluid">
+						<figcaption class="figure-caption text-center">1 ray depth</figcaption>
+					</figure>
+				</div>
+			</div>
+			<div class="row mt-4">
+				<div class="col-md-12 col-lg-6">
+					<figure class="figure">
+						<img src="./bunny_global_part4.png" class="img-fluid">
+						<figcaption class="figure-caption text-center">2 ray depths</figcaption>
+					</figure>
+				</div>
+				<div class="col-md-12 col-lg-6">
+					<figure class="figure">
+						<img src="./bunny_global_part4.png" class="img-fluid">
+						<figcaption class="figure-caption text-center">3 ray depths</figcaption>
+					</figure>
+				</div>
+			</div>
+			<div class="row mt-4">
+				<div class="col-md-12 col-lg-6">
+					<figure class="figure">
+						<img src="./bunny_global_part4.png" class="img-fluid">
+						<figcaption class="figure-caption text-center">4 ray depths</figcaption>
+					</figure>
+				</div>
+				<div class="col-md-12 col-lg-6">
+					<figure class="figure">
+						<img src="./bunny_global_part4.png" class="img-fluid">
+						<figcaption class="figure-caption text-center">100 ray depths</figcaption>
+					</figure>
+				</div>
+			</div>
+			<div class="row mt-4">
+				<h3>How do rendered scenes compare with different sample-per-pixel rates?</h3>
+				<p>fill dis in</p>
+				<div class="col-md-12 col-lg-6">
+					<figure class="figure">
+						<img src="./bunny_global_part4.png" class="img-fluid">
+						<figcaption class="figure-caption text-center">1 sample per pixel</figcaption>
+					</figure>
+				</div>
+				<div class="col-md-12 col-lg-6">
+					<figure class="figure">
+						<img src="./bunny_global_part4.png" class="img-fluid">
+						<figcaption class="figure-caption text-center">2 samples per pixel</figcaption>
+					</figure>
+				</div>
+			</div>
+			<div class="row mt-4">
+				<div class="col-md-12 col-lg-6">
+					<figure class="figure">
+						<img src="./bunny_global_part4.png" class="img-fluid">
+						<figcaption class="figure-caption text-center">4 samples per pixel</figcaption>
+					</figure>
+				</div>
+				<div class="col-md-12 col-lg-6">
+					<figure class="figure">
+						<img src="./bunny_global_part4.png" class="img-fluid">
+						<figcaption class="figure-caption text-center">8 samples per pixel</figcaption>
+					</figure>
+				</div>
+			</div>
+			<div class="row mt-4">
+				<div class="col-md-12 col-lg-6">
+					<figure class="figure">
+						<img src="./bunny_global_part4.png" class="img-fluid">
+						<figcaption class="figure-caption text-center">16 samples per pixel</figcaption>
+					</figure>
+				</div>
+				<div class="col-md-12 col-lg-6">
+					<figure class="figure">
+						<img src="./bunny_global_part4.png" class="img-fluid">
+						<figcaption class="figure-caption text-center">64 samples per pixel</figcaption>
+					</figure>
+				</div>
+			</div>
+			<div class="row mt-4">
+				<div class="col-md-12 col-lg-6">
+					<figure class="figure">
+						<img src="./bunny_global_part4.png" class="img-fluid">
+						<figcaption class="figure-caption text-center">1024 samples per pixel</figcaption>
+					</figure>
 				</div>
 			</div>
 		</div>
@@ -289,28 +517,6 @@
 	<section id="part5" class="bg-body-secondary py-5">
 		<div class="container">
 			<h1>Part 5: Adaptive Sampling</h1>
-			<div class="row mt-4">
-				<div class="col-md-12 col-lg-6">
-					<h3></h3>
-					<p></p>
-				</div>
-				<div class="col-md-12 col-lg-6">
-					<h3></h3>
-					<p></p>
-				</div>
-			</div>
-			<div class="row mt-4">
-				<div class="col-md-12 col-lg-6">
-				</div>
-				<div class="col-md-12 col-lg-6">
-				</div>
-			</div>
-			<div class="row mt-4">
-				<div class="col-md-12 col-lg-6">
-				</div>
-				<div class="col-md-12 col-lg-6">
-				</div>
-			</div>
 		</div>
 	</section>
 
