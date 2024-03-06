@@ -138,14 +138,14 @@
 				</div>
 			</div>
 			<div class="row mt-4">
-				<div class="col-md-12 col-lg-6">
+				<div class="col-sm-12 col-md-6">
 					<figure class="figure">
 						<img src="./part2/lucy_part2.png" class="img-fluid">
 						<figcaption class="figure-caption text-center">CBlucy.dae with normal shading & BVH
 						</figcaption>
 					</figure>
 				</div>
-				<div class="col-md-12 col-lg-6">
+				<div class="col-sm-12 col-md-6">
 					<figure class="figure">
 						<img src="./part2/peter_part2.png" class="img-fluid">
 						<figcaption class="figure-caption text-center">peter.dae with normal shading & BVH</figcaption>
@@ -153,14 +153,14 @@
 				</div>
 			</div>
 			<div class="row mt-4">
-				<div class="col-md-12 col-lg-6">
+				<div class="col-sm-12 col-md-6">
 					<figure class="figure">
 						<img src="./part2/beast_part2.png" class="img-fluid">
 						<figcaption class="figure-caption text-center">beast.dae with normal shading & BVH
 						</figcaption>
 					</figure>
 				</div>
-				<div class="col-md-12 col-lg-6">
+				<div class="col-sm-12 col-md-6">
 					<figure class="figure">
 						<img src="./part2/wall_e_part2.png" class="img-fluid">
 						<figcaption class="figure-caption text-center">wall-e.dae with normal shading & BVH
@@ -209,7 +209,7 @@
 			</div>
 			<div class="row mt-4">
 				<h3 class="my-4">Images rendered with both implementations of the direct lighting function</h3>
-				<div class="col-md-12 col-lg-6">
+				<div class="col-sm-12 col-md-6">
 					<p class="text-center">Uniform Hemisphere Sampling</p>
 					<figure class="figure">
 						<img src="./part3/bunny_hem_part3.png" class="img-fluid">
@@ -220,7 +220,7 @@
 						<figcaption class="figure-caption text-center">coil.dae</figcaption>
 					</figure>
 				</div>
-				<div class="col-md-12 col-lg-6">
+				<div class="col-sm-12 col-md-6">
 					<p class="text-center">Light Sampling</p>
 					<figure class="figure">
 						<img src="./part3/bunny_light_part3.png" class="img-fluid">
@@ -238,7 +238,7 @@
 					at 1 light ray vs 64 light rays, the difference is night and day. Soft shadows for 1 light ray are
 					very scattered, it's easy to see the harsh noise on the ground below the bunny's haed. When there's
 					64 light rays, however, it's much harder to even notice any noise at first glance.</p>
-				<div class="col-md-12 col-lg-6">
+				<div class="col-sm-12 col-md-6">
 					<figure class="figure">
 						<img src="./part3/bunny_l1.png" class="img-fluid">
 						<figcaption class="figure-caption text-center">1 light ray</figcaption>
@@ -248,7 +248,7 @@
 						<figcaption class="figure-caption text-center">4 light rays</figcaption>
 					</figure>
 				</div>
-				<div class="col-md-12 col-lg-6">
+				<div class="col-sm-12 col-md-6">
 					<figure class="figure">
 						<img src="./part3/bunny_l16.png" class="img-fluid">
 						<figcaption class="figure-caption text-center">16 light rays</figcaption>
@@ -296,13 +296,13 @@
 			</div>
 			<div class="row mt-4">
 				<h3>Images rendered with global illumination</h3>
-				<div class="col-md-12 col-lg-6">
+				<div class="col-sm-12 col-md-6">
 					<figure class="figure">
 						<img src="./part4/bunny_general.png" class="img-fluid">
 						<figcaption class="figure-caption text-center">bunny.dae</figcaption>
 					</figure>
 				</div>
-				<div class="col-md-12 col-lg-6">
+				<div class="col-sm-12 col-md-6">
 					<figure class="figure">
 						<img src="./part4/spheres_general.png" class="img-fluid">
 						<figcaption class="figure-caption text-center">sheres.dae</figcaption>
@@ -312,13 +312,13 @@
 			<div class="row mt-4">
 				<h3>How does only direct illumination compare to only indirect illumination?</h3>
 				<p>I notice that direct illumination mostly addresses hard shadows, while indirect shadows addresses soft shadows. When looking at the left and right walls, I notice that shadows casted by the spheres is absent in the direct illumination render but present in the indirect illumination render. Additionally, I notice that the floor has a slight tint of color from the light that bounces off of the walls. I think this is a pretty unique and interesting feature about indirect lighting that really brings the image together.</p>
-				<div class="col-md-12 col-lg-6">
+				<div class="col-sm-12 col-md-6">
 					<figure class="figure">
 						<img src="./part4/spheres_direct_only.png" class="img-fluid">
 						<figcaption class="figure-caption text-center">direct illumination only</figcaption>
 					</figure>
 				</div>
-				<div class="col-md-12 col-lg-6">
+				<div class="col-sm-12 col-md-6">
 					<figure class="figure">
 						<img src="./part4/spheres_indirect.png" class="img-fluid">
 						<figcaption class="figure-caption text-center">indirect illumination only</figcaption>
@@ -330,13 +330,13 @@
 					contribute to the quality of the
 					rendered image compared to rasterization?</h3>
 				<p>Between the 2nd and 3rd bounce renders, I notice that the image in general gets much darker, especially the bunny. This makes sense because by the 3rd bounce, most of the light has dispersed or been absorbed by the surrounding objects. In terms of the quality of the rendered image compared to the rasterization, I'd say that it adds a lot of definition to the render. Soft shadows are defined and color is diffused in a way that makes the render look more like real life.</p>
-				<div class="col-md-12 col-lg-6">
+				<div class="col-sm-12 col-md-6">
 					<figure class="figure">
 						<img src="./part4/bunny_0th_bounces.png" class="img-fluid">
 						<figcaption class="figure-caption text-center">0th bounce</figcaption>
 					</figure>
 				</div>
-				<div class="col-md-12 col-lg-6">
+				<div class="col-sm-12 col-md-6">
 					<figure class="figure">
 						<img src="./part4/bunny_1st_bounce.png" class="img-fluid">
 						<figcaption class="figure-caption text-center">1st bounce</figcaption>
@@ -344,13 +344,13 @@
 				</div>
 			</div>
 			<div class="row mt-4">
-				<div class="col-md-12 col-lg-6">
+				<div class="col-sm-12 col-md-6">
 					<figure class="figure">
 						<img src="./part4/bunny_2nd_bounce.png" class="img-fluid">
 						<figcaption class="figure-caption text-center">2nd bounce</figcaption>
 					</figure>
 				</div>
-				<div class="col-md-12 col-lg-6">
+				<div class="col-sm-12 col-md-6">
 					<figure class="figure">
 						<img src="./part4/bunny_3rd_bounce.png" class="img-fluid">
 						<figcaption class="figure-caption text-center">3rd bounce</figcaption>
@@ -358,13 +358,13 @@
 				</div>
 			</div>
 			<div class="row mt-4">
-				<div class="col-md-12 col-lg-6">
+				<div class="col-sm-12 col-md-6">
 					<figure class="figure">
 						<img src="./part4/bunny_4th_bounce.png" class="img-fluid">
 						<figcaption class="figure-caption text-center">4th bounce</figcaption>
 					</figure>
 				</div>
-				<div class="col-md-12 col-lg-6">
+				<div class="col-sm-12 col-md-6">
 					<figure class="figure">
 						<img src="./part4/bunny_5th_bounce.png" class="img-fluid">
 						<figcaption class="figure-caption text-center">5th bounce</figcaption>
@@ -373,14 +373,14 @@
 			</div>
 			<div class="row mt-4">
 				<h3>How do rendered images look with different ray depths? (without Russian Roulette)</h3>
-				<p>fill dis in</p>
-				<div class="col-md-12 col-lg-6">
+				<p>Images look more "real" with increased ray-depth. Especially in the range of 1-3 ray depths, I think this is the range where change is most noticeable and most impactful to the render. Ray depths after 3 seem to make little to no noticable impact on how a render looks to the naked eye.I notice that the major difference between 2 ray depths and 5 ray depths is the amount of light diffusion. On the bunny and on the walls, the light looks to be more diffused; the white shades on the bunny looks more natural and warmer than the white with 2 ray depths.</p>
+				<div class="col-sm-12 col-md-6">
 					<figure class="figure">
 						<img src="./part4/bunny_0th_bounces.png" class="img-fluid">
 						<figcaption class="figure-caption text-center">ray depth 0</figcaption>
 					</figure>
 				</div>
-				<div class="col-md-12 col-lg-6">
+				<div class="col-sm-12 col-md-6">
 					<figure class="figure">
 						<img src="./part4/bunny_1_bounce_nrr.png" class="img-fluid">
 						<figcaption class="figure-caption text-center">1 ray depth</figcaption>
@@ -388,13 +388,13 @@
 				</div>
 			</div>
 			<div class="row mt-4">
-				<div class="col-md-12 col-lg-6">
+				<div class="col-sm-12 col-md-6">
 					<figure class="figure">
 						<img src="./part4/bunny_2_bounces_nrr.png" class="img-fluid">
 						<figcaption class="figure-caption text-center">2 ray depths</figcaption>
 					</figure>
 				</div>
-				<div class="col-md-12 col-lg-6">
+				<div class="col-sm-12 col-md-6">
 					<figure class="figure">
 						<img src="./part4/bunny_3_bounces_nrr.png" class="img-fluid">
 						<figcaption class="figure-caption text-center">3 ray depths</figcaption>
@@ -402,13 +402,13 @@
 				</div>
 			</div>
 			<div class="row mt-4">
-				<div class="col-md-12 col-lg-6">
+				<div class="col-sm-12 col-md-6">
 					<figure class="figure">
 						<img src="./part4/bunny_4_bounces_nrr.png" class="img-fluid">
 						<figcaption class="figure-caption text-center">4 ray depths</figcaption>
 					</figure>
 				</div>
-				<div class="col-md-12 col-lg-6">
+				<div class="col-sm-12 col-md-6">
 					<figure class="figure">
 						<img src="./part4/bunny_5_bounces_nrr.png" class="img-fluid">
 						<figcaption class="figure-caption text-center">5 ray depths</figcaption>
@@ -417,14 +417,14 @@
 			</div>
 			<div class="row mt-4">
 				<h3>How do rendered images look with different ray depths? (with Russian Roulette)</h3>
-				<p>fill dis in</p>
-				<div class="col-md-12 col-lg-6">
+				<p>Similar to the rendered images without Russian Roulette, I'd say that the images with increased ray depth look more "real". Especially when bumping up the number of rays to 100, I'd say that the rendered image looks very nice. This type of convergence and unbias result is something that Russian Roulette helps up get.</p>
+				<div class="col-sm-12 col-md-6">
 					<figure class="figure">
 						<img src="./part4/bunny_0_bounces_rr.png" class="img-fluid">
 						<figcaption class="figure-caption text-center">ray depth 0</figcaption>
 					</figure>
 				</div>
-				<div class="col-md-12 col-lg-6">
+				<div class="col-sm-12 col-md-6">
 					<figure class="figure">
 						<img src="./part4/bunny_1_bounce_rr.png" class="img-fluid">
 						<figcaption class="figure-caption text-center">1 ray depth</figcaption>
@@ -432,13 +432,13 @@
 				</div>
 			</div>
 			<div class="row mt-4">
-				<div class="col-md-12 col-lg-6">
+				<div class="col-sm-12 col-md-6">
 					<figure class="figure">
 						<img src="./part4/bunny_2_bounces_rr.png" class="img-fluid">
 						<figcaption class="figure-caption text-center">2 ray depths</figcaption>
 					</figure>
 				</div>
-				<div class="col-md-12 col-lg-6">
+				<div class="col-sm-12 col-md-6">
 					<figure class="figure">
 						<img src="./part4/bunny_3_bounces_rr.png" class="img-fluid">
 						<figcaption class="figure-caption text-center">3 ray depths</figcaption>
@@ -446,13 +446,13 @@
 				</div>
 			</div>
 			<div class="row mt-4">
-				<div class="col-md-12 col-lg-6">
+				<div class="col-sm-12 col-md-6">
 					<figure class="figure">
 						<img src="./part4/bunny_4_bounces_rr.png" class="img-fluid">
 						<figcaption class="figure-caption text-center">4 ray depths</figcaption>
 					</figure>
 				</div>
-				<div class="col-md-12 col-lg-6">
+				<div class="col-sm-12 col-md-6">
 					<figure class="figure">
 						<img src="./part4/bunny_100_bounces_rr.png" class="img-fluid">
 						<figcaption class="figure-caption text-center">100 ray depths</figcaption>
@@ -461,14 +461,14 @@
 			</div>
 			<div class="row mt-4">
 				<h3>How do rendered scenes compare with different sample-per-pixel rates?</h3>
-				<p>fill dis in</p>
-				<div class="col-md-12 col-lg-6">
+				<p>In general, as scenes are rendered with higher sample-per-pixel rates, the more clear and defined they look. For example, the image rendered with 1 sample per pixel looks grainy and noisy. On the other hand, the image rendered with 1024 samples per pixel looks basically flawless. One can point out the details on wall-e's gears, joints, and caterpillar track.</p>
+				<div class="col-sm-12 col-md-6">
 					<figure class="figure">
 						<img src="./part4/wall_e_1_sample.png" class="img-fluid">
 						<figcaption class="figure-caption text-center">1 sample per pixel</figcaption>
 					</figure>
 				</div>
-				<div class="col-md-12 col-lg-6">
+				<div class="col-sm-12 col-md-6">
 					<figure class="figure">
 						<img src="./part4/wall_e_2_samples.png" class="img-fluid">
 						<figcaption class="figure-caption text-center">2 samples per pixel</figcaption>
@@ -476,13 +476,13 @@
 				</div>
 			</div>
 			<div class="row mt-4">
-				<div class="col-md-12 col-lg-6">
+				<div class="col-sm-12 col-md-6">
 					<figure class="figure">
 						<img src="./part4/wall_e_4_samples.png" class="img-fluid">
 						<figcaption class="figure-caption text-center">4 samples per pixel</figcaption>
 					</figure>
 				</div>
-				<div class="col-md-12 col-lg-6">
+				<div class="col-sm-12 col-md-6">
 					<figure class="figure">
 						<img src="./part4/wall_e_8_samples.png" class="img-fluid">
 						<figcaption class="figure-caption text-center">8 samples per pixel</figcaption>
@@ -490,13 +490,13 @@
 				</div>
 			</div>
 			<div class="row mt-4">
-				<div class="col-md-12 col-lg-6">
+				<div class="col-sm-12 col-md-6">
 					<figure class="figure">
 						<img src="./part4/wall_e_16_samples.png" class="img-fluid">
 						<figcaption class="figure-caption text-center">16 samples per pixel</figcaption>
 					</figure>
 				</div>
-				<div class="col-md-12 col-lg-6">
+				<div class="col-sm-12 col-md-6">
 					<figure class="figure">
 						<img src="./part4/wall_e_64_samples.png" class="img-fluid">
 						<figcaption class="figure-caption text-center">64 samples per pixel</figcaption>
@@ -504,7 +504,7 @@
 				</div>
 			</div>
 			<div class="row mt-4">
-				<div class="col-md-12 col-lg-6">
+				<div class="col-sm-12 col-md-6">
 					<figure class="figure">
 						<img src="./part4/wall_e_1024_samples.png" class="img-fluid">
 						<figcaption class="figure-caption text-center">1024 samples per pixel</figcaption>
