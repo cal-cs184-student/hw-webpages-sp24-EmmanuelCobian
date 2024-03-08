@@ -50,7 +50,7 @@
 			<h1>Homework 3 - Pathtracer</h1>
 			<!-- give a high level overview of what you did in this hw
 				think about what you've build as a whole. Share your thoughts on what interesting things you're learned from completing the homework. -->
-			<p class="lead">In this homework, I ...
+			<p class="lead">In this assignment, I implemented the core routines of a physically-based renderer using a pathtracing algorithm. I implemented concepts like ray-scene intersection, acceleration structures, and physically based lighting and materials. I really enjoyed seeing the realistic looking pictures that I was able to generate by the end of this assignment. I also found the last part on adaptive sampling really interesting because while the concept seemed a bit abstract and complicated at first, the implementation wasn't all that tough and instead pretty intuitive.
 			</p>
 		</div>
 	</section>
@@ -383,7 +383,7 @@
 				<div class="col-sm-12 col-md-6">
 					<figure class="figure">
 						<img src="./part4/bunny_1_bounce_nrr.png" class="img-fluid">
-						<figcaption class="figure-caption text-center">1 ray depth</figcaption>
+						<figcaption class="figure-caption text-center">ray depth 1</figcaption>
 					</figure>
 				</div>
 			</div>
@@ -391,13 +391,13 @@
 				<div class="col-sm-12 col-md-6">
 					<figure class="figure">
 						<img src="./part4/bunny_2_bounces_nrr.png" class="img-fluid">
-						<figcaption class="figure-caption text-center">2 ray depths</figcaption>
+						<figcaption class="figure-caption text-center">ray depth 2</figcaption>
 					</figure>
 				</div>
 				<div class="col-sm-12 col-md-6">
 					<figure class="figure">
 						<img src="./part4/bunny_3_bounces_nrr.png" class="img-fluid">
-						<figcaption class="figure-caption text-center">3 ray depths</figcaption>
+						<figcaption class="figure-caption text-center">ray depth 3</figcaption>
 					</figure>
 				</div>
 			</div>
@@ -405,13 +405,13 @@
 				<div class="col-sm-12 col-md-6">
 					<figure class="figure">
 						<img src="./part4/bunny_4_bounces_nrr.png" class="img-fluid">
-						<figcaption class="figure-caption text-center">4 ray depths</figcaption>
+						<figcaption class="figure-caption text-center">ray depth 4</figcaption>
 					</figure>
 				</div>
 				<div class="col-sm-12 col-md-6">
 					<figure class="figure">
 						<img src="./part4/bunny_5_bounces_nrr.png" class="img-fluid">
-						<figcaption class="figure-caption text-center">5 ray depths</figcaption>
+						<figcaption class="figure-caption text-center">ray depth 5</figcaption>
 					</figure>
 				</div>
 			</div>
@@ -427,7 +427,7 @@
 				<div class="col-sm-12 col-md-6">
 					<figure class="figure">
 						<img src="./part4/bunny_1_bounce_rr.png" class="img-fluid">
-						<figcaption class="figure-caption text-center">1 ray depth</figcaption>
+						<figcaption class="figure-caption text-center">ray depth 1</figcaption>
 					</figure>
 				</div>
 			</div>
@@ -435,13 +435,13 @@
 				<div class="col-sm-12 col-md-6">
 					<figure class="figure">
 						<img src="./part4/bunny_2_bounces_rr.png" class="img-fluid">
-						<figcaption class="figure-caption text-center">2 ray depths</figcaption>
+						<figcaption class="figure-caption text-center">ray depth 2</figcaption>
 					</figure>
 				</div>
 				<div class="col-sm-12 col-md-6">
 					<figure class="figure">
 						<img src="./part4/bunny_3_bounces_rr.png" class="img-fluid">
-						<figcaption class="figure-caption text-center">3 ray depths</figcaption>
+						<figcaption class="figure-caption text-center">ray depth 3</figcaption>
 					</figure>
 				</div>
 			</div>
@@ -449,13 +449,13 @@
 				<div class="col-sm-12 col-md-6">
 					<figure class="figure">
 						<img src="./part4/bunny_4_bounces_rr.png" class="img-fluid">
-						<figcaption class="figure-caption text-center">4 ray depths</figcaption>
+						<figcaption class="figure-caption text-center">ray depth 4</figcaption>
 					</figure>
 				</div>
 				<div class="col-sm-12 col-md-6">
 					<figure class="figure">
 						<img src="./part4/bunny_100_bounces_rr.png" class="img-fluid">
-						<figcaption class="figure-caption text-center">100 ray depths</figcaption>
+						<figcaption class="figure-caption text-center">ray depth 100</figcaption>
 					</figure>
 				</div>
 			</div>
@@ -517,6 +517,38 @@
 	<section id="part5" class="bg-body-secondary py-5">
 		<div class="container">
 			<h1>Part 5: Adaptive Sampling</h1>
+			<div class="row mt-4">
+				<div class="col-md-12 col-lg-6">
+					<h3>What is adaptive sampling?</h3>
+					<p>Adaptive sampling is a technique used to improve the efficiency of rendering scenes by dynamically changing the sampling rate of pixels based on how noisy they are. Because some pixels converge faster with low sampling rates, we have some computation time by not sampling points more than we need to. Therefore, we can focus on sampling pixels that are more noisy.</p>
+				</div>
+				<div class="col-md-12 col-lg-6">
+					<h3>How was adaptive sampling implemented?</h3>
+					<p>By altering the <code>raytrace_pixel(...)</code> function, I was able to keep track of variables <code>s1</code> and <code>s2</code> which represent the sum of sample illuminations and the sum of squared sample illuminations, respectively. These are then used to compute sample mean and variance every <code>samplesPerBatch</code> times and compute whether this pixel has converged or not. If a pixel has converged, then we stop sampling, else, we continue until we converge or reach the maximum number of samples.</p>
+				</div>
+			</div>
+			<div class="row mt-4">
+				<div class="col-sm-12 col-md-6">
+					<figure class="figure">
+						<img src="./part5/bunny_rate.png" class="img-fluid">
+						<figcaption class="figure-caption text-center">depiction of sampling rate</figcaption>
+					</figure>
+					<figure class="figure">
+						<img src="./part5/bunny.png" class="img-fluid">
+						<figcaption class="figure-caption text-center">final render</figcaption>
+					</figure>
+				</div>
+				<div class="col-sm-12 col-md-6">
+					<figure class="figure">
+						<img src="./part5/wall_e_rate.png" class="img-fluid">
+						<figcaption class="figure-caption text-center">depictions of sampling rate</figcaption>
+					</figure>
+					<figure class="figure">
+						<img src="./part5/wall_e.png" class="img-fluid">
+						<figcaption class="figure-caption text-center">final render</figcaption>
+					</figure>
+				</div>
+			</div>
 		</div>
 	</section>
 
