@@ -99,6 +99,70 @@
 	<section id="part2" class="py-5">
 		<div class="container">
 			<h1>Part 2: Simulation Via Numerical Integration</h1>
+			<div class="row mt-4">
+				<h3>What are the effects of changing the spring constant <code>ks</code>? How does the cloth behave from
+					start to rest with a very low <code>ks</code>? A high <code>ks</code>?</h3>
+				<p>When using a very low <code>ks</code> value, I noticed that the cloth wouldn't wrinkle or fold in any way. It would just fall into steady state like a flat sheet of printer paper. On the other hand, when I used a very high <code>ks</code> value, I noticed that the cloth had well defined edges and wrinkles both as it fell into steady state and after it was in steady state.</p>
+				<div class="col-sm-12 col-md-6">
+					<figure class="figure">
+						<img src="part2/low_ks.png" class="figure-img img-fluid rounded">
+						<figcaption class="figure-caption text-center">Low <code>ks</code></figcaption>
+					</figure>
+				</div>
+				<div class="col-sm-12 col-md-6">
+					<figure class="figure">
+						<img src="part2/high_ks.png" class="figure-img img-fluid rounded">
+						<figcaption class="figure-caption text-center">High <code>ks</code></figcaption>
+					</figure>
+				</div>
+			</div>
+			<div class="row mt-4">
+				<h3>What are the effects of changing the spring constant <code>density</code>? How does the cloth behave from
+					start to rest with a very low <code>density</code>? A high <code>density</code>?</h3>
+				<p>When using a very low denisty, I noticed that the cloth didn't look all that differnet to the normal parameters; however, I did notice that the top edge of the cloth was more defined and the cloth was more wrinkled. On the other hand, when I used a very high density, I noticed that the top edge of the cloth had multiple wrinkles when compared to the low density settings. The bottom edge is also curved while the low density settings had a straight bottom edge.
+				</p>
+				<div class="col-sm-12 col-md-6">
+					<figure class="figure">
+						<img src="part2/low_density.png" class="figure-img img-fluid rounded">
+						<figcaption class="figure-caption text-center">Low  <code>density</code></figcaption>
+					</figure>
+				</div>
+				<div class="col-sm-12 col-md-6">
+					<figure class="figure">
+						<img src="part2/high_density.png" class="figure-img img-fluid rounded">
+						<figcaption class="figure-caption text-center">High  <code>density</code></figcaption>
+					</figure>
+				</div>
+			</div>
+			<div class="row mt-4">
+				<h3>What are the effects of changing the spring constant <code>damping</code>? How does the cloth behave from
+					start to rest with a very low <code>damping</code>? A high <code>damping</code>?</h3>
+				<p>When using a very low <code>damping</code> value, the cloth flutters about almost uncontrollably, like it's in a wind chamber of sorts. In the image, we see that the cloth folds both towards and away from the camera, something that wasn't seen when playing with other parameters. On the other hand, when using a high <code>damping</code> value, I noticed that the cloth falls down slowly and with no fluttering. The cloth is also stiff, no fluttering at all.</p>
+				<div class="col-sm-12 col-md-6">
+					<figure class="figure">
+						<img src="part2/low_damping.png" class="figure-img img-fluid rounded">
+						<figcaption class="figure-caption text-center">Low <code>damping</code></figcaption>
+					</figure>
+				</div>
+				<div class="col-sm-12 col-md-6">
+					<figure class="figure">
+						<img src="part2/high_damping.png" class="figure-img img-fluid rounded">
+						<figcaption class="figure-caption text-center">High <code>damping</code></figcaption>
+					</figure>
+				</div>
+			</div>
+			<div class="row mt-4">
+				<div class="col-sm-12 col-md-6">
+					<h3>How does pinned4.json look in its final resting state?</h3>
+					<p>From the image, the cloth with four corners pinned looks like what one would expect. The cloth hangs and the middle of the cloth stoops down a bit.</p>
+				</div>
+				<div class="col-sm-12 col-md-6">
+					<figure class="figure">
+						<img src="part2/pinned4.png" class="figure-img img-fluid rounded">
+						<figcaption class="figure-caption text-center">pinned4.json</figcaption>
+					</figure>
+				</div>
+			</div>
 		</div>
 	</section>
 
