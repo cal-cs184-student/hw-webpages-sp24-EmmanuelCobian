@@ -169,6 +169,37 @@
 	<section id="part3" class="bg-body-secondary py-5">
 		<div class="container">
 			<h1>Part 3: Handling Collisions with Other Objects</h1>
+			<div class="row mt-4">
+				<h3>How does the cloth over a sphere look like with different <code>ks</code> values?</h3>
+				<p>When using small values of <code>ks</code>, I notice that the cloth droops down low; the cloth has more surface area contact with the sphere when compared to the default value of <code>ks</code>. On the other hand, when using a large value of <code>ks</code>, I notice that the cloth appears more bulky in a sense. When the cloth falls onto the sphere, the cloth folds and makes it seem like it's more stiff. Less of the cloth's surface touches the sphere when compared to a low value of <code>ks</code>.</p>
+				<div class="col-sm-12 col-md-4">
+					<figure class="figure">
+						<img src="part3/ks_500.png" class="figure-img img-fluid rounded">
+						<figcaption class="figure-caption text-center">ks = 500</figcaption>
+					</figure>
+				</div>
+				<div class="col-sm-12 col-md-4">
+					<figure class="figure">
+						<img src="part3/ks_5000.png" class="figure-img img-fluid rounded">
+						<figcaption class="figure-caption text-center">ks = 5000</figcaption>
+					</figure>
+				</div>
+				<div class="col-sm-12 col-md-4">
+					<figure class="figure">
+						<img src="part3/ks_50000.png" class="figure-img img-fluid rounded">
+						<figcaption class="figure-caption text-center">ks = 50000</figcaption>
+					</figure>
+				</div>
+			</div>
+			<div class="row justify-content-center mt-4">
+				<div class="col-sm-12 col-md-8">
+					<h3>How does the shaded cloth look like at rest on the plane?</h3>
+					<figure class="figure">
+						<img src="part3/plane.png" class="figure-img img-fluid rounded">
+						<figcaption class="figure-caption text-center">cloth on plane at rest</figcaption>
+					</figure>
+				</div>
+			</div>
 		</div>
 	</section>
 
