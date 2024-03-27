@@ -255,10 +255,10 @@
 			</div>
 			<h3>How does the simulation change when altering <code>density</code> and <code>ks</code> values?</h3>
 			<p>When density is low, the cloth falls like a sliky material. The cloth also doesn't fold on itself as much
-				when compared to when density is high. When the density is high, the cloth has many more folds on
-				itself. When the ks constant is low, I notice that, similar to when density is high, the cloth has many
-				more folds on itself. On the other hand, when ks is high, the cloth doesn't have as many folds and it
-				falls more smoothly.</p>
+				when compared to when density is high. Furthermore, when the density is high, the cloth has many more folds on
+				itself and takes longer to reach steady state. When the ks constant is low, I notice that, similar to when density is high, the cloth has many
+				more folds and takes a bit longer to reach steady state because of the folds in the cloth. On the other hand, when ks is high, the cloth doesn't have as many folds and it
+				falls more smoothly; the cloth doesn't take long to reach steady state.</p>
 			<div class="row mt-4">
 				<div class="col-sm-12 col-md-6">
 					<figure class="figure">
@@ -294,12 +294,22 @@
 			<h1>Part 5: Shaders</h1>
 			<div class="row mt-4">
 				<div class="col-sm-12 col-md-6">
-					<h3>What is a shader program and how do vertex and fragment shaders work together to create lighting and material effects?</h3>
-					<p>Shader programs are isolated programs that run in parallel on the GPU, meaning that we can accelerate computations and display lighting effects for real-time and interactive applications. Shader programs execute sections of the graphics pipeline by taking in some input and outputting a single 4D vector. Vector shaders transform and change gemoetric properties of vertices. These transformations become the inpuut for fragment shaders that then compute a color using the transformations.</p>
+					<h3>What is a shader program and how do vertex and fragment shaders work together to create lighting
+						and material effects?</h3>
+					<p>Shader programs are isolated programs that run in parallel on the GPU, meaning that we can
+						accelerate computations and display lighting effects for real-time and interactive applications.
+						Shader programs execute sections of the graphics pipeline by taking in some input and outputting
+						a single 4D vector. Vector shaders transform and change gemoetric properties of vertices. These
+						transformations become the inpuut for fragment shaders that then compute a color using the
+						transformations.</p>
 				</div>
 				<div class="col-sm-12 col-md-6">
 					<h3>What is the Blinn-Phong shading model?</h3>
-					<p>The Blinn-Phong shading model is a method used to calculate the illumination of surfaces. It combines three different types of lighting effects, ambient, specular, and diffuse, to produce one cohesive output. In the end, this model determines the color of each pixel based on its orientation relative to light sources and the viewer's position, helping create a realistic lighting effect.</p>
+					<p>The Blinn-Phong shading model is a method used to calculate the illumination of surfaces. It
+						combines three different types of lighting effects, ambient, specular, and diffuse, to produce
+						one cohesive output. In the end, this model determines the color of each pixel based on its
+						orientation relative to light sources and the viewer's position, helping create a realistic
+						lighting effect.</p>
 				</div>
 			</div>
 			<div class="row mt-4">
@@ -327,6 +337,38 @@
 					<figure class="figure">
 						<img src="part5/complete.png" class="figure-img img-fluid rounded">
 						<figcaption class="figure-caption text-center">Complete blinn-phong model</figcaption>
+					</figure>
+				</div>
+			</div>
+			<div class="row mt-4">
+				<h3>Bump vs displacement mapping with different mesh coarseness</h3>
+				<p>Bump mapping modifies normal vectors of an object such that the fragment shader gives the illusion of
+					detail. On the other hand, displacement mapping is the modification of the vertices' positions to
+					reflect the height map on top of also changing the vector normals. On the renderes, I notice that bump mapping does a good job of making the texture look like it's "popping out" in a sense. On the other hand, the displacement render does a good job of accentuating the bumps and making them stick out through the change in vertex positions.</p>
+				<div class="col-sm-12 col-md-6">
+					<figure class="figure">
+						<img src="part5/bump_16.png" class="figure-img img-fluid rounded">
+						<figcaption class="figure-caption text-center">Bump mapping -o 16 -a 16</figcaption>
+					</figure>
+				</div>
+				<div class="col-sm-12 col-md-6">
+					<figure class="figure">
+						<img src="part5/displacement_16.png" class="figure-img img-fluid rounded">
+						<figcaption class="figure-caption text-center">Displacement mapping -o 16 -a 16</figcaption>
+					</figure>
+				</div>
+			</div>
+			<div class="row mt-4">
+				<div class="col-sm-12 col-md-6">
+					<figure class="figure">
+						<img src="part5/bump_128.png" class="figure-img img-fluid rounded">
+						<figcaption class="figure-caption text-center">Bump mapping -o 128 -a 128</figcaption>
+					</figure>
+				</div>
+				<div class="col-sm-12 col-md-6">
+					<figure class="figure">
+						<img src="part5/displacement_128.png" class="figure-img img-fluid rounded">
+						<figcaption class="figure-caption text-center">Displacement mapping -o 128 -a 128</figcaption>
 					</figure>
 				</div>
 			</div>
