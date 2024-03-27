@@ -344,7 +344,7 @@
 				<h3>Bump vs displacement mapping with different mesh coarseness</h3>
 				<p>Bump mapping modifies normal vectors of an object such that the fragment shader gives the illusion of
 					detail. On the other hand, displacement mapping is the modification of the vertices' positions to
-					reflect the height map on top of also changing the vector normals. On the renderes, I notice that bump mapping does a good job of making the texture look like it's "popping out" in a sense. On the other hand, the displacement render does a good job of accentuating the bumps and making them stick out through the change in vertex positions.</p>
+					reflect the height map on top of also changing the vector normals. On the renderes, I notice that bump mapping does a good job of making the texture look like it's "popping out" in a sense. On the other hand, the displacement render does a good job of accentuating the bumps and making them stick out through the change in vertex positions. Finally, when the coarseness is set with <code>-o 16</code> and <code>-a 16</code>, the texture doesn't wrap around the sphere as smoothly; I notice jagged edges here and there. On the other hand, when the coarseness is set with <code>-o 128</code> and <code>-a 128</code>, the texture smoothly wraps around the sphere and differences in vector position come only from the implementation of displacement mapping.</p>
 				<div class="col-sm-12 col-md-6">
 					<figure class="figure">
 						<img src="part5/bump_16.png" class="figure-img img-fluid rounded">
