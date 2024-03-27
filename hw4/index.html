@@ -293,16 +293,15 @@
 		<div class="container">
 			<h1>Part 5: Shaders</h1>
 			<div class="row mt-4">
-				<div class="col">
-					<h3>Explain what a shader program is and how vertex and fragment shaders work together to create
-						lighting and material effects.</h3>
-					<p>fill dis in</p>
+				<div class="col-sm-12 col-md-6">
+					<h3>What is a shader program and how do vertex and fragment shaders work together to create lighting and material effects?</h3>
+					<p>Shader programs are isolated programs that run in parallel on the GPU, meaning that we can accelerate computations and display lighting effects for real-time and interactive applications. Shader programs execute sections of the graphics pipeline by taking in some input and outputting a single 4D vector. Vector shaders transform and change gemoetric properties of vertices. These transformations become the inpuut for fragment shaders that then compute a color using the transformations.</p>
+				</div>
+				<div class="col-sm-12 col-md-6">
+					<h3>What is the Blinn-Phong shading model?</h3>
+					<p>The Blinn-Phong shading model is a method used to calculate the illumination of surfaces. It combines three different types of lighting effects, ambient, specular, and diffuse, to produce one cohesive output. In the end, this model determines the color of each pixel based on its orientation relative to light sources and the viewer's position, helping create a realistic lighting effect.</p>
 				</div>
 			</div>
-			<h3>Explain the Blinn-Phong shading model in your own words. Show a screenshot of your Blinn-Phong shader
-				outputting only the ambient component, only the diffuse component, and only specular component, and one
-				with entire model.</h3>
-			<p>fill dis in</p>
 			<div class="row mt-4">
 				<div class="col-sm-12 col-md-6">
 					<figure class="figure">
@@ -332,7 +331,7 @@
 				</div>
 			</div>
 			<div class="row mt-4">
-				<h3>Show a screenshot of your mirror shader on the cloth and on the sphere</h3>
+				<h3>Screenshots of a mirror shader on the cloth and on the sphere</h3>
 				<div class="col-sm-12 col-md-6">
 					<figure class="figure">
 						<img src="part5/cloth_mirror.png" class="figure-img img-fluid rounded">
