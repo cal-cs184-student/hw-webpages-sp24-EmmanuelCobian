@@ -50,7 +50,13 @@
 			<h1>Homework 4 - Clothsim</h1>
 			<!-- give a high level overview of what you did in this hw
 				think about what you've build as a whole. Share your thoughts on what interesting things you're learned from completing the homework. -->
-			<p class="lead">In this assignment I implemented a real-time simulation of cloth using a mass and spring based system. I built the data sctuctures to discretely represent cloth and implemented the physical constratins on them. I also applied numerical integration to simulate the way cloth moves over time. Lastly, I also implemented a collision system that handles both self-collisions and collisions with other objects. One thing that I found really interesting about this project was how the cloth behaved when changing physical constants like spring constants, density, and damping. By changing these basic constants, one gets drastically differnet results in the cloth's behavior.
+			<p class="lead">In this assignment I implemented a real-time simulation of cloth using a mass and spring
+				based system. I built the data sctuctures to discretely represent cloth and implemented the physical
+				constratins on them. I also applied numerical integration to simulate the way cloth moves over time.
+				Lastly, I also implemented a collision system that handles both self-collisions and collisions with
+				other objects. One thing that I found really interesting about this project was how the cloth behaved
+				when changing physical constants like spring constants, density, and damping. By changing these basic
+				constants, one gets drastically differnet results in the cloth's behavior.
 			</p>
 		</div>
 	</section>
@@ -109,13 +115,13 @@
 				<div class="col-sm-12 col-md-6">
 					<figure class="figure">
 						<img src="part2/low_ks.png" class="figure-img img-fluid rounded">
-						<figcaption class="figure-caption text-center">Low <code>ks</code></figcaption>
+						<figcaption class="figure-caption text-center">ks = 1</figcaption>
 					</figure>
 				</div>
 				<div class="col-sm-12 col-md-6">
 					<figure class="figure">
 						<img src="part2/high_ks.png" class="figure-img img-fluid rounded">
-						<figcaption class="figure-caption text-center">High <code>ks</code></figcaption>
+						<figcaption class="figure-caption text-center">ks = 10000</figcaption>
 					</figure>
 				</div>
 			</div>
@@ -132,13 +138,13 @@
 				<div class="col-sm-12 col-md-6">
 					<figure class="figure">
 						<img src="part2/low_density.png" class="figure-img img-fluid rounded">
-						<figcaption class="figure-caption text-center">Low <code>density</code></figcaption>
+						<figcaption class="figure-caption text-center">density = 1</figcaption>
 					</figure>
 				</div>
 				<div class="col-sm-12 col-md-6">
 					<figure class="figure">
 						<img src="part2/high_density.png" class="figure-img img-fluid rounded">
-						<figcaption class="figure-caption text-center">High <code>density</code></figcaption>
+						<figcaption class="figure-caption text-center">density = 500</figcaption>
 					</figure>
 				</div>
 			</div>
@@ -154,13 +160,13 @@
 				<div class="col-sm-12 col-md-6">
 					<figure class="figure">
 						<img src="part2/low_damping.png" class="figure-img img-fluid rounded">
-						<figcaption class="figure-caption text-center">Low <code>damping</code></figcaption>
+						<figcaption class="figure-caption text-center">damping = 0.011</figcaption>
 					</figure>
 				</div>
 				<div class="col-sm-12 col-md-6">
 					<figure class="figure">
 						<img src="part2/high_damping.png" class="figure-img img-fluid rounded">
-						<figcaption class="figure-caption text-center">High <code>damping</code></figcaption>
+						<figcaption class="figure-caption text-center">damping = 0.79</figcaption>
 					</figure>
 				</div>
 			</div>
@@ -190,7 +196,8 @@
 					the other hand, when using a large value of <code>ks</code>, I notice that the cloth appears more
 					bulky in a sense. When the cloth falls onto the sphere, the cloth folds and makes it seem like it's
 					more stiff. Less of the cloth's surface touches the sphere when compared to a low value of
-					<code>ks</code>.</p>
+					<code>ks</code>.
+				</p>
 				<div class="col-sm-12 col-md-4">
 					<figure class="figure">
 						<img src="part3/ks_500.png" class="figure-img img-fluid rounded">
@@ -247,7 +254,11 @@
 				</div>
 			</div>
 			<h3>How does the simulation change when altering <code>density</code> and <code>ks</code> values?</h3>
-			<p>When density is low, the cloth falls like a sliky material. The cloth also doesn't fold on itself as much when compared to when density is high. When the density is high, the cloth has many more folds on itself. When the ks constant is low, I notice that, similar to when density is high, the cloth has many more folds on itself. On the other hand, when ks is high, the cloth doesn't have as many folds and it falls more smoothly.</p>
+			<p>When density is low, the cloth falls like a sliky material. The cloth also doesn't fold on itself as much
+				when compared to when density is high. When the density is high, the cloth has many more folds on
+				itself. When the ks constant is low, I notice that, similar to when density is high, the cloth has many
+				more folds on itself. On the other hand, when ks is high, the cloth doesn't have as many folds and it
+				falls more smoothly.</p>
 			<div class="row mt-4">
 				<div class="col-sm-12 col-md-6">
 					<figure class="figure">
@@ -283,11 +294,14 @@
 			<h1>Part 5: Shaders</h1>
 			<div class="row mt-4">
 				<div class="col">
-					<h3>Explain what a shader program is and how vertex and fragment shaders work together to create lighting and material effects.</h3>
+					<h3>Explain what a shader program is and how vertex and fragment shaders work together to create
+						lighting and material effects.</h3>
 					<p>fill dis in</p>
 				</div>
 			</div>
-			<h3>Explain the Blinn-Phong shading model in your own words. Show a screenshot of your Blinn-Phong shader outputting only the ambient component, only the diffuse component, and only specular component, and one with entire model.</h3>
+			<h3>Explain the Blinn-Phong shading model in your own words. Show a screenshot of your Blinn-Phong shader
+				outputting only the ambient component, only the diffuse component, and only specular component, and one
+				with entire model.</h3>
 			<p>fill dis in</p>
 			<div class="row mt-4">
 				<div class="col-sm-12 col-md-6">
